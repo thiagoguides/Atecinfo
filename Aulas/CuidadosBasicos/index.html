@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>ATI - Cuidados Basicos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+	</head>
+	
+	<body class="right-sidebar" onload="load()">
+		<div id="page-wrapper">
+			<div id="cp-header"></div>
+				
+				<section id="main" class="wrapper style2">
+					<div class="title">Cuidados Basicos</div>
+					<div class="container">
+						<div class="row gtr-150">
+							<div class="col-8 col-12-medium">
+								<div id="cp-Conteudo"></div>
+							</div>
+							<div class="col-4 col-12-medium">
+								<div id="cp-rightBar"></div>
+							</div>							
+						</div>
+					</div>
+				</section>
+
+			
+			<div id="cp-Novidades"></div>
+			<div id="cp-footer"></div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/loadAjax.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+	</body>
+	<script>	
+		function load(){
+		addHtml("/Aulas/CuidadosBasicos/cp-Conteudo.html", "cp-Conteudo");
+		addHtml("/Aulas/cp-rightBar.html", "cp-rightBar");
+		}
+	</script>
+</html>

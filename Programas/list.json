@@ -1,0 +1,225 @@
+[{
+    "icon": "acrobat reader.png",
+    "titulo": "Acrobat Reader",
+    "descricao": "Leitor de Pdf gratuido.", 
+    "download": "https://drive.google.com/file/d/1zOndAhqVqHl6PXvpxvxCLmZPCEszbg91/view?usp=sharing",
+    "cat": "Basico p/ windows"
+},
+{
+    "icon": "advance systemCare.png",
+    "titulo": "Advance SystemCare",
+    "descricao": "Limpeza basica para windows.", 
+    "download": "https://drive.google.com/file/d/1HGhevqKnL4N5w17sXkmNHtrdJJX85Que/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "aida64.png",
+    "titulo": "Aida64",
+    "descricao": "Pega informações do computador, tambem serve para testar alguns componentes e medir a temperatura", 
+    "download": "https://drive.google.com/file/d/1mKGhZM6iO9Rq0PgfMs4Q24cBAtvDMgjw/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "avast.png",
+    "titulo": "Avast",
+    "descricao": "Antivirus gratuito, uns dos melhores", 
+    "download": "https://drive.google.com/file/d/1SCY0O11veOn-UzNVTgsQOoXaz9KbiDjC/view?usp=sharing",
+    "cat": "Basico p/ windows"
+},
+{
+    "icon": "console.png",
+    "titulo": "Bat Limpa filha de impressão",
+    "descricao": "Para o serviço e impressão, limpa a fila e depois inicia o serviço de impressão", 
+    "download": "https://drive.google.com/file/d/19qfe67cCnyuVMwB70vZl6vy4dFMsRtl1/view?usp=sharing",
+    "cat": "Bat's"
+},
+{
+    "icon": "console.png",
+    "titulo": "Bat Backup com winrar",
+    "descricao": "Realiza o backup colocando o nome do arquivo de forma personalizada", 
+    "download": "https://drive.google.com/file/d/14byrNFJDgE6mw47UF5HFZw98Uwns4yej/view?usp=sharing",
+    "cat": "Bat's"
+},
+{
+    "icon": "console.png",
+    "titulo": "Atualiza relogio",
+    "descricao": "Atualiza a data e hora usando a internet", 
+    "download": "https://drive.google.com/file/d/1ckd_eLB2rx6p6gJ3ZOYAjf080MY0bBhi/view?usp=sharing",
+    "cat": "Bat's"
+},
+{
+    "icon": "CPU-Z.png",
+    "titulo": "CPU-Z",
+    "descricao": "Pega informações do Hardware (placas) do computaodr", 
+    "download": "https://drive.google.com/file/d/1BL4ZZCJ8V9nrl12lyMqNvDBRMa6PYMtd/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "cutePdf.png",
+    "titulo": "Cute Pdf",
+    "descricao": "Impressora virtual, quando imprime nala permite você salvar em PDF", 
+    "download": "https://drive.google.com/file/d/1LRbJ4t96yu9ILIjSYS421w8JCDTeffI1/view?usp=sharing",
+    "cat": "Basico p/ windows"
+},
+{
+    "icon": "diskDesfrag.png",
+    "titulo": "Disk Desfrag",
+    "descricao": "Desfragmenta o HD e muitos casos deixando o windows mais rapido \"NAO SERVE PARA SSD\"", 
+    "download": "https://drive.google.com/file/d/1uvuXLr4K9tAwTkwdfu_n-iaE9jqrivsk/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "driveBooster.png",
+    "titulo": "Drive Booster",
+    "descricao": "Atualiza o drive do windows de forma automatica, recomendo desinstalar depois de usar", 
+    "download": "https://drive.google.com/file/d/1EHjXq23HfXbMflc-IHxkshR_C8H10-e_/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "foxIt reader.png",
+    "titulo": "FoxIt Reader",
+    "descricao": "Leitor de PDF gratuito, alternativo para adober reader", 
+    "download": "https://drive.google.com/file/d/19We3UIqNXnhcLJpYQtrfsABGBW-0jYGG/view?usp=sharing",
+    "cat": "Basico p/ windows"
+},
+{
+    "icon": "hijackthis.png",
+    "titulo": "Hijackthis",
+    "descricao": "Lista todos os programas que estao iniciando com o windows", 
+    "download": "https://drive.google.com/file/d/1UeXqFhl8uySP2y8yswCSmLXDSIY1FIbL/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "internetExplorer.png",
+    "titulo": "Internet Explorer 9 (86)",
+    "descricao": "IE para windows 7 32bits", 
+    "download": "https://drive.google.com/file/d/186pzKcrITSVRh5LkKi7mcVaxXjmhj7Vy/view?usp=sharing",
+    "cat": "Outros"
+},
+{
+    "icon": "internetExplorer.png",
+    "titulo": "Internet Explorer 9 (64)",
+    "descricao": "IE para windows 7 64bits", 
+    "download": "https://drive.google.com/file/d/1yc2FHCrJdHcoK77eZUKt3N4GJIjmhDnT/view?usp=sharing",
+    "cat": "Outros"
+},
+{
+    "icon": "ipscan.png",
+    "titulo": "Ip Scan",
+    "descricao": "Lista todos os IPs da rede", 
+    "download": "https://drive.google.com/file/d/1wttRAwH0qVdliz-3JDwTqlxgtb_0uSY8/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "java.jpg",
+    "titulo": "Java",
+    "descricao": "Complemento para alguns sites que utilizam desse recurso", 
+    "download": "https://drive.google.com/file/d/1Qhn-TZPukQ2_GcGbTE4Hy2QlQmQHr0fn/view?usp=sharing",
+    "cat": "Basico p/ windows Manutenção"
+},
+{
+    "icon": "key.png",
+    "titulo": "KMS - windows e Office",
+    "descricao": "Ativador para windows e office (varias versões)", 
+    "download": "https://drive.google.com/file/d/1GtNveKw8PwWeumqxeTpdhznq62y78JBd/view?usp=sharing",
+    "cat": "Manutenção Ativadores"
+},
+{
+    "icon": "k-lite.png",
+    "titulo": "K-lite - Codec",
+    "descricao": "Codec de audioe e video, para abrir diversas extenções", 
+    "download": "https://drive.google.com/file/d/1goT5eDcElTw9A2dY5EIvdPV9dg9IUYCH/view?usp=sharing",
+    "cat": "Basico p/ windows"
+},
+{
+    "icon": "lanSpeedTest.png",
+    "titulo": "Lan SpeedTest",
+    "descricao": "Testa a velocidade da rede interna", 
+    "download": "https://drive.google.com/file/d/1_Oe9Az7vg9PByw8WG-Fxd0LLVgHKq9nj/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "moveMake.png",
+    "titulo": "Move Make 2",
+    "descricao": "Editor de video, o mesmo que era usado no windows XP", 
+    "download": "https://drive.google.com/file/d/1S6NdPj7z1qUOh3JdS5IQinampqiVAzjl/view?usp=sharing",
+    "cat": "Outros"
+},
+{
+    "icon": "mycam.png",
+    "titulo": "Mycam",
+    "descricao": "Programa simples para usar/testar a webcam", 
+    "download": "https://drive.google.com/file/d/1EOBsJfcSWJ4bZWIVwHMFPq5WO6kV73t7/view?usp=sharing",
+    "cat": "Manutenção Outros"
+},
+{
+    "icon": "password.png",
+    "titulo": "Outlook Password Decryptor",
+    "descricao": "Descobre senha salva no outelook", 
+    "download": "https://drive.google.com/file/d/1SfTuuneDzi0kbQDvERKGz1H2tkX1lOI0/view?usp=sharing",
+    "cat": "Outros Manutenção"
+},
+{
+    "icon": "recuva.png",
+    "titulo": "Recuva",
+    "descricao": "Recupera arquivos deletados", 
+    "download": "https://drive.google.com/file/d/1j1_Lev5KESMo1Ek-dbIQ71HB7Y1FPL-d/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "adwCleaner.png",
+    "titulo": "Adw Cleaner",
+    "descricao": "Limpa o windows removendo adwares", 
+    "download": "https://drive.google.com/file/d/1aKkB4OZnrukrJwHENenfMu6Xgevae78N/view?usp=sharing",
+    "cat": "Manutenção"
+},
+{
+    "icon": "wga.png",
+    "titulo": "Wga win 7",
+    "descricao": "Remove a mensagem de windows com licença vencida (NAO ATIVA O WINDOS)", 
+    "download": "https://drive.google.com/file/d/1rizeWYrIjGuT-xKvPqpm7HQWv3786Sdc/view?usp=sharing",
+    "cat": "Ativadores Manutenção"
+},
+{
+    "icon": "windowsBtn.png",
+    "titulo": "Ativador win7",
+    "descricao": "Remove a mensagem de windows com licença vencida (NAO ATIVA O WINDOS)", 
+    "download": "https://drive.google.com/file/d/1Lqk8ORqlKxtJ52HzDQn6PqlJ0Mt6hIL-/view?usp=sharing",
+    "cat": "Ativadores"
+},
+{
+    "icon": "windowsBtn.png",
+    "titulo": "Classic Shell Setup",
+    "descricao": "Botão iniciar classico", 
+    "download": "https://drive.google.com/file/d/1BRgMdQy0ZgFk3ypVVKgzQIAscvUA2Z3V/view?usp=sharing",
+    "cat": "Outros"
+},
+{
+    "icon": "winrar.png",
+    "titulo": "Winrar",
+    "descricao": "Compactador de arquivo (zip, rar...)", 
+    "download": "https://drive.google.com/file/d/1T9oS5bN-MLK3FRTcEsv6NjU7Li7Sf6qC/view?usp=sharing",
+    "cat": "Basico p/ windows"
+},
+{
+    "icon": "anydesk.png",
+    "titulo": "Anydesk",
+    "descricao": "Acessa ou permite um acesso remoto", 
+    "download": "https://drive.google.com/file/d/1T-vDexwB9udOcE8OE2GCinn4ICMNxVDs/view?usp=sharing",
+    "cat": "Acesso Remoto"
+},
+{
+    "icon": "teamViewer.png",
+    "titulo": "Team Viewer",
+    "descricao": "Acessa ou permite um acesso remoto", 
+    "download": "https://drive.google.com/file/d/1YVuglJ2srfVDfuIB52AL9Ql8M18Iv3RZ/view?usp=sharing",
+    "cat": "Acesso Remoto"
+},
+{
+    "icon": "showmypc.png",
+    "titulo": "Showmypc",
+    "descricao": "Acessa ou permite um acesso remoto", 
+    "download": "https://drive.google.com/file/d/1h-VunvNvbZ7p7MWumDDJqHSQpclWh40B/view?usp=sharing",
+    "cat": "Acesso Remoto"
+}
+]
