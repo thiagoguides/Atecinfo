@@ -222,11 +222,11 @@
     "download": "https://drive.google.com/file/d/1h-VunvNvbZ7p7MWumDDJqHSQpclWh40B/view?usp=sharing",
     "cat": "Acesso Remoto"
 },
- {
-    "icon": "winrar.png",
-    "titulo": "Tls 1.2 Win XP",
-    "descricao": "Adiciona a criptografia Tls 1.2, corrige erro de envio no outelook do windows xp", 
-    "download": "https://drive.google.com/file/d/1Km7CTS05r5V0GsIhqYxNQcJ6UreMt9SA/view?usp=sharing",
-    "cat": "Outros Manutenção"
+{
+    "icon": "disket ATEC.png",
+    "titulo": "A TEC BKP",
+    "descricao": "Agenda backups e notifica por e-mail", 
+    "download": "https://drive.google.com/file/d/1-0EAsSVZwsD1MWUZ4eOVrkuHePP2aLr6/view?usp=sharing",
+    "cat": "A TEC INFO"
 }
 ]
