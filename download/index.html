@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Downloads Seguros - A TEC INFO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Script do Tema e CSS Base Global -->
+    <script src="/thema.js"></script>    
+    <link rel="stylesheet" href="cssBase.css">
+</head>
+<body class="bg-white dark:bg-studio-900 text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white overflow-x-hidden transition-colors duration-300">
+
+    <!-- Menu Superior Reutilizável (Tom Principal: White / Studio-900) -->
+    <div id="menuTopo"></div>
+
+    <!-- Header Principal de Downloads (Tom Contrastante: Slate-100 / Studio-950) -->
+    <section class="pt-28 pb-12 bg-slate-100/70 dark:bg-studio-950/60 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
+        <div class="max-w-7xl mx-auto text-center">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-studio-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold transition-colors duration-200">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                <i class="fa-solid fa-shield-halved text-brand-600 dark:text-slate-200"></i> Links Verificados e Testados
+            </div>
+           
+            
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-white tracking-tight">
+                Central de Downloads A TEC INFO
+            </h1>
+            
+            <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                Programas essenciais, utilitários, instaladores diretos e ferramentas autorais testadas e livres de adwares para facilitar a manutenção do seu computador.
+            </p>
+
+            <!-- Barra de Pesquisa (Fundo com contraste interno) -->
+            <div class="mt-8 max-w-xl mx-auto relative">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 text-lg"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por programa, extensão ou palavras-chave (ex: winrar, pdf, otimizar)..." 
+                        class="w-full pl-12 pr-10 py-4 bg-white dark:bg-studio-800 border border-slate-200 dark:border-slate-700 rounded-2xl text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-600 dark:focus:border-brand-400 focus:bg-white dark:focus:bg-studio-800/90 shadow-sm transition-all">
+                    <button id="clearSearch" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Botões de Categorias (Filtro) -->
+            <div class="mt-8 flex flex-wrap justify-center gap-2" id="categoryContainer">
+                <!-- Gerado Dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista de Programas (Voltamos ao Tom Principal: White / Studio-900) -->
+    <section class="py-12 bg-white dark:bg-studio-900 transition-colors duration-200 min-h-[500px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Contador de Resultados -->
+            <div class="flex items-center justify-between mb-6 px-1">
+                <span id="resultsCount" class="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 tracking-wider">Carregando programas...</span>
+            </div>
+
+            <!-- Grid Principal de Cards -->
+            <div id="downloadsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Cards Inseridos Dinamicamente pelo JS -->
+            </div>
+
+            <!-- Estado de Nenhum Resultado Encontrado -->
+            <div id="noResults" class="hidden text-center py-16 bg-slate-50 dark:bg-studio-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="w-16 h-16 bg-slate-100 dark:bg-studio-700/50 text-slate-400 dark:text-slate-400 rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Nenhum programa encontrado</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Tente pesquisar com outro termo ou mude a categoria selecionada.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Rodapé Reutilizável (Tom Escuro Fixo) -->
+    <div id="rodape"></div>
+
+    <script src="/load.js"></script>
+    <script src="downloads.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "card_alerta",
+    "nome": "Card de Alerta / Regra",
+    "categoria": "Alertas",
+    "icone": "fa-triangle-exclamation",
+    "html": "<div class=\"p-5 sm:p-6 rounded-2xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-500/30 flex gap-4 items-start transition-colors duration-200\">\n    <div class=\"w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/10 text-amber-600 dark:text-amber-300 flex items-center justify-center text-2xl shrink-0\">\n        <i class=\"fa-solid fa-triangle-exclamation\"></i>\n    </div>\n    <div>\n        <h4 class=\"font-display font-bold text-base text-slate-900 dark:text-amber-200\">Regra de Ouro do Backup</h4>\n        <p class=\"text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-1\">\n            Quem tem apenas uma cópia de seus arquivos, na verdade <strong class=\"text-slate-800 dark:text-slate-100\">não tem nenhuma</strong>. Discos rígidos (HDs) e SSDs podem falhar sem aviso prévio. Mantenha seus arquivos importantes em pelo menos dois locais diferentes.\n        </p>\n    </div>\n</div>"
+  },
+  {
+    "id": "cabecalho_secao",
+    "nome": "Cabeçalho de Seção Numerado",
+    "categoria": "Títulos",
+    "icone": "fa-heading",
+    "html": "<div class=\"flex items-center gap-3\">\n    <span class=\"w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 font-display font-extrabold flex items-center justify-center text-lg border border-brand-100 dark:border-brand-800/60 shrink-0\">01</span>\n    <h2 class=\"font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight\">\n        Título da Seção Aqui\n    </h2>\n</div>"
+  },
+  {
+    "id": "paragrafo_texto",
+    "nome": "Parágrafo do Artigo",
+    "categoria": "Texto",
+    "icone": "fa-paragraph",
+    "html": "<p class=\"text-slate-600 dark:text-slate-300 text-base leading-relaxed\">\n    Digite o texto explicativo aqui...\n</p>"
+  },
+  {
+    "id": "grid_comparacao",
+    "nome": "Grid de Comparação (2 Colunas)",
+    "categoria": "Containers",
+    "icone": "fa-border-all",
+    "html": "<div class=\"my-6 grid grid-cols-1 sm:grid-cols-2 gap-4\">\n<%comp%>\n</div>"
+  },
+  {
+    "id": "card_comparativo_imagem",
+    "nome": "Card Comparativo com Imagem",
+    "categoria": "Midia",
+    "icone": "fa-image",
+    "html": "<div class=\"rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100/50 dark:bg-studio-900/60 p-2 transition-colors duration-200\">\n    <img src=\"https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=80&w=600&auto=format&fit=crop\" alt=\"Legenda da imagem\" class=\"w-full h-48 object-cover rounded-xl mb-2\">\n    <p class=\"text-xs text-red-600 dark:text-red-400 font-bold text-center py-1\">\n        <i class=\"fa-solid fa-xmark mr-1\"></i> Risco: Arquivos guardados em um único lugar\n    </p>\n</div>"
+  },
+  {
+    "id": "grid_opcoes_2col",
+    "nome": "Grid de Opções (2 Colunas)",
+    "categoria": "Containers",
+    "icone": "fa-columns",
+    "html": "<div class=\"grid grid-cols-1 md:grid-cols-2 gap-6 my-6\">\n<%comp%>\n</div>"
+  },
+  {
+    "id": "card_opcao_detalhada",
+    "nome": "Card de Opção com Lista",
+    "categoria": "Cards",
+    "icone": "fa-hard-drive",
+    "html": "<div class=\"bg-white dark:bg-studio-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between\">\n    <div>\n        <div class=\"w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-4 font-bold border border-brand-100 dark:border-brand-800/60\">\n            <i class=\"fa-solid fa-hard-drive\"></i>\n        </div>\n        <h3 class=\"font-display font-bold text-lg text-slate-900 dark:text-white mb-2\">Título da Opção</h3>\n        <p class=\"text-slate-600 dark:text-slate-300 text-xs leading-relaxed mb-4\">\n            Resumo curto explicando este recurso ou ferramenta.\n        </p>\n        <ul class=\"space-y-2 text-xs text-slate-600 dark:text-slate-300\">\n            <li class=\"flex items-center gap-2\"><i class=\"fa-solid fa-check text-brand-600 dark:text-brand-400\"></i> Vantagem ou recurso 1</li>\n            <li class=\"flex items-center gap-2\"><i class=\"fa-solid fa-check text-brand-600 dark:text-brand-400\"></i> Vantagem ou recurso 2</li>\n            <li class=\"flex items-center gap-2\"><i class=\"fa-solid fa-triangle-exclamation text-amber-500\"></i> Ponto de atenção ou limitação</li>\n        </ul>\n    </div>\n</div>"
+  },
+  {
+    "id": "grid_servicos_3col",
+    "nome": "Grid de Serviços (3 Colunas)",
+    "categoria": "Containers",
+    "icone": "fa-table-cells",
+    "html": "<div class=\"grid grid-cols-1 sm:grid-cols-3 gap-4 my-6\">\n<%comp%>\n</div>"
+  },
+  {
+    "id": "card_servico_grade",
+    "nome": "Card de Serviço / Plataforma",
+    "categoria": "Cards",
+    "icone": "fa-cloud",
+    "html": "<div class=\"p-5 rounded-2xl bg-slate-50 dark:bg-studio-900 border border-slate-200 dark:border-slate-700 text-center\">\n    <div class=\"w-10 h-10 mx-auto rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-3 border border-brand-100 dark:border-brand-800/60\">\n        <i class=\"fa-brands fa-google-drive\"></i>\n    </div>\n    <h4 class=\"font-display font-bold text-sm text-slate-900 dark:text-white\">Nome do Serviço</h4>\n    <p class=\"text-xs text-slate-500 dark:text-slate-400 mt-1\">15 GB Gratuitos</p>\n    <p class=\"text-xs text-slate-600 dark:text-slate-300 mt-2\">Descrição sucinta do serviço.</p>\n</div>"
+  }
+]

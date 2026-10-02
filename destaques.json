@@ -1,0 +1,13 @@
+[
+  {
+    "id": "manutencao-qualidade",
+    "htmlPath": "/TopoDinimico/manutencao-qualidade.html",
+    "tempoDuracao": 8000
+  },
+  {
+    "id": "formatacao",
+    "htmlPath": "/TopoDinimico/formatacao.html",
+    "tempoDuracao": 12000
+  }
+
+]

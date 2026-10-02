@@ -1,0 +1,367 @@
+Você é um desenvolvedor Frontend e Redator Técnico especialista no ecossistema Tailwind CSS + FontAwesome da AtecInfo.
+Sua tarefa é converter o texto da postagem fornecida no final em um código HTML componentizado e dinâmico, além de gerar o objeto JSON de metadados correspondente.
+
+---
+
+### 🎨 REGRAS DE DESIGN & DESIGN SYSTEM (AtecInfo)
+
+1. **Responsividade & Suporte Dual Theme (Light/Dark):**
+   - Mantenha rigorosamente as classes Tailwind de suporte a tema escuro (`dark:...`).
+   - Cores principais e utilitárias:
+     - Fundo dos cards: `bg-slate-100/70 dark:bg-studio-800/60` ou `bg-slate-50 dark:bg-studio-800/50`
+     - Bordas: `border-slate-200 dark:border-slate-700/80` ou `border-slate-800`
+     - Títulos: `text-slate-900 dark:text-white`
+     - Textos/Parágrafos: `text-slate-600 dark:text-slate-300`
+     - Marca / Destaques: `text-brand-600 dark:text-brand-400`, `bg-brand-600`
+     - Destaques em texto: `<strong class="text-slate-800 dark:text-slate-100">`
+
+2. **Uso dos Componentes Semânticos:**
+   Utilize os componentes estruturais conforme a intenção do texto original:
+
+   - **[COMPONENTE A] Citação / Pensamento Editorial / Reflexão:**
+     Estrutura lateral com borda de destaque (`border-l-2 border-slate-300 dark:border-slate-700`). Usado no início (introdução impactante) ou fim (conclusão).
+
+   - **[COMPONENTE B] Chat / Dúvida Frequente:**
+     Formato de conversa/balão de mensagem entre "Cliente" (à esquerda com ícone `fa-user`) e "Técnico/Assistência" (à direita em `bg-brand-600` com ícone `fa-headset`).
+
+   - **[COMPONENTE C] Histórias / Casos de Estudo (Cards em Lista):**
+     Header com ícone dentro de uma caixa estilizada (`w-10 h-10 rounded-xl bg-slate-100 dark:bg-studio-800`), seguido por cards indidividuais (`p-5 sm:p-6 rounded-2xl bg-slate-100/70 dark:bg-studio-800/60 border border-slate-200 dark:border-slate-700/80`).
+
+   - **[COMPONENTE D] Lista de Riscos / Fatores (1 por Linha):**
+     Cards horizontais enxutos para listar tópicos rápidos (`p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5`) com ícones dinâmicos no FontAwesome.
+
+   - **[COMPONENTE E] Grid de Opções / Soluções (2 Colunas em telas médias/grandes):**
+     Grid (`grid grid-cols-1 sm:grid-cols-2 gap-6`) com cards contendo ícone + título na mesma linha (`flex items-center gap-3`) e descrição explicativa abaixo.
+
+   - **[COMPONENTE F] Caixa de Alerta / Atenção:**
+     Card destacado com fundo âmbar (`bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-900/50`) e ícone `fa-triangle-exclamation` na cor `text-amber-600 dark:text-amber-400`.
+
+   - **[COMPONENTE G] Dica de Ouro / Insight Técnico:**
+     Card em destaque com ícone de lâmpada (`fa-lightbulb`) focado em conselhos valiosos ou boas práticas de manutenção/segurança.
+
+   - **[COMPONENTE H] CTA Final (Suporte Especializado):**
+     Sempre encerre o HTML com o card de Chamada para Ação direcionado ao WhatsApp da AtecInfo (`https://wa.me/5543984051934`), adaptando o título e o texto do card de acordo com o assunto da postagem.
+
+---
+
+### 📦 FORMATO DA RESPOSTA
+
+Você deve retornar o conteúdo dividido em duas partes exatamente neste formato:
+
+1. **Código HTML:** O bloco `<div class="space-y-10">...</div>` completo e pronto para colar no arquivo.
+2. **Objeto JSON de Metadados:**
+
+```json
+{
+  "id": "slug-do-artigo",
+  "titulo": "Título Atraente e Chamativo",
+  "categoria": "Categoria do Post",
+  "tempoLeitura": "X min",
+  "dataPublicacao": "AAAA-MM-DD",
+  "imagemCapa": "[https://images.unsplash.com/](https://images.unsplash.com/)...",
+  "subtitulo": "Subtítulo explicativo com boa chamada de atenção.",
+  "resumoHome": "Resumo de 2 a 3 linhas para o card da home.",
+  "arquivoConteudo": "/informativo/conteudos/slug-do-artigo.html",
+  "tags": ["tag1", "tag2", "tag3"]
+}
+
+
+segue um exemplo real para ter como base
+
+<!-- Componente do Artigo: Backup e Segurança de Dados -->
+<div class="space-y-10">
+
+    <!-- INTRODUÇÃO (MODELO B: STORYTELLING / QUOTE EDITORIAL) -->
+    <div class="my-6 relative px-6 py-4 border-l-2 border-slate-300 dark:border-slate-700 space-y-3">
+        <p class="font-display font-medium text-lg sm:text-xl text-slate-800 dark:text-slate-200 italic leading-snug">
+            "O suor frio bate na hora: a tela congela, o computador desliga e você lembra que não salvava o arquivo há mais de duas horas..."
+        </p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Se perder poucas horas de trabalho já causa uma dor de cabeça enorme, imagine perder a memória completa do seu negócio ou da sua família: contratos, notas fiscais, fotos históricas e planilhas de anos. O backup existe justamente para que esse pesadelo nunca se torne realidade.
+        </p>
+    </div>
+
+    <!-- O QUE É BACKUP -->
+    <div class="space-y-4">
+        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">
+            O Que É Backup de Verdade?
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+            Fazer backup nada mais é do que criar uma <strong class="text-slate-800 dark:text-slate-100">cópia de segurança dos seus arquivos em um local totalmente separado</strong>. Se o seu computador principal "der pau", for roubado ou sofrer um surto elétrico, seus dados continuam 100% salvos e protegidos.
+        </p>
+    </div>
+
+    <!-- DÚVIDA FREQUENTE (CHAT REFORMULADO) -->
+    <div class="my-8 space-y-4 py-2 border-y border-slate-200 dark:border-slate-800">
+        <!-- Pergunta -->
+        <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-studio-800 flex items-center justify-center text-slate-700 dark:text-slate-300 font-bold text-xs shrink-0 mt-1">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="p-4 rounded-2xl rounded-tl-none bg-slate-100 dark:bg-studio-800/80 border border-slate-200 dark:border-slate-700/80 max-w-2xl">
+                <span class="text-[11px] font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider block mb-1">Dúvida Frequente do Cliente</span>
+                <p class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-100">
+                    "Ah, mas eu guardo tudo no meu computador e ele nunca deu problema. Preciso mesmo me preocupar com isso?"
+                </p>
+            </div>
+        </div>
+
+        <!-- Resposta -->
+        <div class="flex items-start gap-3 justify-end">
+            <div class="p-4 rounded-2xl rounded-tr-none bg-brand-600 text-white max-w-2xl shadow-sm">
+                <span class="text-[11px] font-bold text-brand-200 uppercase tracking-wider block mb-1">Resposta Técnica</span>
+                <p class="text-sm sm:text-base leading-relaxed">
+                    Com certeza! O problema é que o hardware sempre avisa... depois que já queimou! Na informática, a regra é clara: <strong>não existe a pergunta "SE o meu HD vai pifar", mas sim "QUANDO ele vai pifar"</strong>.
+                </p>
+            </div>
+            <div class="w-9 h-9 rounded-full bg-brand-600 flex items-center justify-center text-white text-xs shrink-0 font-bold mt-1">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- HISTÓRIAS INCRÍVEIS (CADA UMA EM UM CARD INDIVIDUAL) -->
+    <div class="space-y-6 pt-4">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-studio-800 text-slate-800 dark:text-slate-100 flex items-center justify-center text-lg border border-slate-200 dark:border-slate-700 shrink-0">
+                <i class="fa-solid fa-landmark"></i>
+            </div>
+            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white tracking-tight">
+                Histórias Realmente Incríveis (E Trágicas)
+            </h3>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Caso 1 em Card -->
+            <div class="p-5 sm:p-6 rounded-2xl bg-slate-100/70 dark:bg-studio-800/60 border border-slate-200 dark:border-slate-700/80 space-y-2">
+                <h4 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-building text-blue-600 dark:text-white"></i> O caso das Torres Gêmeas (11 de Setembro)
+                </h4>
+                <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                    Existiam empresas com sedes nas Torres Gêmeas que faziam backup. Uma torre tinha o servidor principal e a outra torre tinha o servidor de backup. Parecia perfeito, né? Redundância física! Mas quando o desastre aconteceu, ambas as torres caíram. Por mais que a empresa ainda tivesse funcionários espalhados pelos EUA, a empresa teve que fechar as portas para sempre, pois perdeu absolutamente todos os seus dados.
+                </p>
+            </div>
+
+            <!-- Caso 2 em Card -->
+            <div class="p-5 sm:p-6 rounded-2xl bg-slate-100/70 dark:bg-studio-800/60 border border-slate-200 dark:border-slate-700/80 space-y-2">
+                <h4 class="font-display font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-fire-flame-curved text-blue-600 dark:text-white"></i> O caso do Prédio da UEL (Universidade Estadual de Londrina)
+                </h4>
+                <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                    A universidade criou uma sala antichamas super moderna e colocou todos os equipamentos e fitas de backup lá dentro. O prédio pegou fogo e a sala resistiu bravamente às chamas... porém, o calor absurdo derreteu todas as fitas de backup do lado de dentro. Não sobrou nada!
+                </p>
+            </div>
+
+            <!-- Moral da História em Card -->
+            <div class="p-5 sm:p-6 rounded-2xl bg-slate-100/70 dark:bg-studio-800/60 border border-slate-200 dark:border-slate-700/80">
+                <p class="text-sm sm:text-base text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
+                    <strong class="text-brand-600 dark:text-brand-400 font-bold">Moral da história:</strong> Backup de verdade precisa estar protegido contra o <strong class="text-slate-900 dark:text-white">FOGO</strong> e contra o <strong class="text-slate-900 dark:text-white">CALOR</strong> (e de preferência bem longe do servidor principal).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PENSANDO NO PIOR CENÁRIO -->
+    <div class="space-y-6 pt-4">
+        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">
+            Pensando no Pior Cenário
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+            Quando montamos um plano de segurança para os seus dados, precisamos ser um pouco "pessimistas" e analisar tudo o que pode dar errado na rotina:
+        </p>
+
+        <!-- Lista em Coluna Única (1 por linha) -->
+        <div class="space-y-3">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">Raio ou surto elétrico queimando o HD</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-user-ninja"></i>
+                </div>
+                <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">Ladrão entrando na loja/escritório e levando a máquina</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">Café caindo no notebook no meio do expediente</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-user-xmark"></i>
+                </div>
+                <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">Aquele funcionário revoltado que decide apagar tudo antes de ir embora</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-bug"></i>
+                </div>
+                <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">Vírus do tipo Ransomware (aquele que sequestra seus arquivos e cobra resgate)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ONDE GUARDAR SEUS ARQUIVOS (ÍCONE + TÍTULO NA MESMA LINHA) -->
+    <div class="space-y-6 pt-4">
+        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">
+            Opções de Aonde Salvar Seus Arquivos
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+            Depende do tamanho do seu negócio e da sua rotina, mas existem várias opções. O ideal é combinar mais de uma!
+        </p>
+
+        <!-- Grid de Soluções -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-studio-800/60 shadow-sm space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center text-lg shrink-0">
+                        <i class="fa-solid fa-hard-drive"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">1. HD Externo</h3>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Excelente para guardar muita coisa. <strong class="text-slate-800 dark:text-slate-100">Dica de ouro:</strong> leve para casa ao final do dia. Só tome cuidado, pois se ele cair no chão, pode pifar igual ao computador!
+                </p>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-studio-800/60 shadow-sm space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center text-lg shrink-0">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">2. Na Nuvem</h3>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Google Drive, OneDrive, Dropbox, Mega. Seus arquivos ficam salvos em um servidor super seguro na internet.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-studio-800/60 shadow-sm space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center text-lg shrink-0">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">3. Outro Computador/Servidor da Rede</h3>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Ter uma máquina dedicada na sua empresa apenas para receber as cópias diárias dos outros computadores.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-studio-800/60 shadow-sm space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center text-lg shrink-0">
+                        <i class="fa-solid fa-sd-card"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">4. Pendrives</h3>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Quebram um galho para arquivos rápidos e leves do dia a dia.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CAIXA DE ALERTA: CUIDADO COM A NUVEM -->
+    <div class="p-5 sm:p-6 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 flex gap-4 items-start transition-colors duration-200">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl shrink-0">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div>
+            <h4 class="font-display font-bold text-base text-slate-900 dark:text-white">Cuidado com a Nuvem!</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
+                Salvar na nuvem é excelente e muito prático. Mas de nada adianta ter o melhor plano do Google Drive se você esquecer a senha ou perder o e-mail de recuperação! Salve suas senhas com segurança. Perder o acesso à nuvem é igualzinho a perder o pendrive na rua.
+            </p>
+        </div>
+    </div>
+
+    <!-- FERRAMENTAS PRÁTICAS -->
+    <div class="space-y-6 pt-4">
+        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">
+            Ferramentas Práticas que Você Pode Usar
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+            E essa é a melhor forma, porque confiar na memória humana para fazer backup manual quase nunca funciona.
+        </p>
+
+        <!-- Lista de Ferramentas -->
+        <div class="space-y-3">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <span class="text-sm text-slate-700 dark:text-slate-300">
+                    <strong class="text-slate-900 dark:text-white">Aplicativos Oficiais de Nuvem:</strong> Google Drive for Desktop, OneDrive e Dropbox sincronizam suas pastas automaticamente.
+                </span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <span class="text-sm text-slate-700 dark:text-slate-300">
+                    <strong class="text-slate-900 dark:text-white">Programas Específicos de Backup:</strong> Como o Uranium Backup ou Cobian Backup (excelentes para empresas).
+                </span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-studio-800/50 border border-slate-200 dark:border-slate-800 flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <span class="text-sm text-slate-700 dark:text-slate-300">
+                    <strong class="text-slate-900 dark:text-white">Automação Leve:</strong> Scripts .bat integrados com o WinRAR e Agendador de Tarefas do próprio Windows.
+                </span>
+            </div>
+        </div>
+
+        <!-- DICA DE OURO DA NOSSA ASSISTÊNCIA (ÍCONE + TÍTULO NA MESMA LINHA) -->
+        <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-studio-800/60 shadow-sm space-y-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-studio-700 text-blue-600 dark:text-white flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Dica de Ouro da Nossa Assistência</h3>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Não tente salvar o computador inteiro! Salve apenas o que realmente importa: suas pastas de Documentos, Imagens, Banco de Dados do seu sistema e Planilhas. Fazer backup de arquivos temporários, programas instalados ou vídeos da internet só vai deixar seu backup pesado, lento e caro na nuvem. Organização é tudo!
+            </p>
+        </div>
+    </div>
+
+    <!-- CONCLUSÃO -->
+    <div class="my-8 relative px-6 py-4 border-l-2 border-slate-300 dark:border-slate-700">
+        <p class="font-display font-medium text-lg sm:text-xl text-slate-800 dark:text-slate-200 italic leading-snug">
+            "É mil vezes melhor estar preparado para o pior e ele nunca acontecer, do que o pior acontecer e você perder tudo o que levou anos para construir."
+        </p>
+    </div>
+
+    <!-- CHAMADA FINAL PARA A ATECINFO -->
+    <div class="mt-10 p-6 sm:p-8 rounded-3xl bg-slate-100/80 dark:bg-studio-800/80 border border-slate-200 dark:border-slate-700/80 flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-200">
+        <div class="space-y-2 text-center md:text-left">
+            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+                <i class="fa-solid fa-shield-halved"></i> Suporte Especializado em Londrina
+            </span>
+            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white">
+                Quer proteger os dados da sua empresa ou PC pessoal?
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 max-w-xl">
+                Não espere o seu HD pifar para lembrar do backup! Analisamos a sua rotina, configuramos cópias automáticas e deixamos tudo seguro e transparente.
+            </p>
+        </div>
+
+        <a href="https://wa.me/5543984051934" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto px-6 py-3.5 rounded-xl font-display font-bold text-sm bg-brand-600 hover:bg-brand-700 text-white transition-all shrink-0 flex items-center justify-center gap-2.5 shadow-md">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Falar com o Técnico
+        </a>
+    </div>
+
+</div> 
+
+me mande um ok que voce entendeu ou se tem alguma duvida pode perguntar, que em seguida vou te enviar o texto para voce fazer a formataçao

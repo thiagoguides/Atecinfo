@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtecInfo - Builder & Editor de Templates</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              studio: { 50: '#f8fafc', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
+              brand: { 400: '#38bdf8', 500: '#0284c7', 600: '#0369a1', 700: '#075985' }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Outfit', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-studio-50 dark:bg-studio-950 text-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col antialiased">
+
+    <!-- INPUT INVISÍVEL PARA IMPORTAR ARQUIVO JSON -->
+    <input type="file" id="inputImportarTemplate" accept=".json" class="hidden" onchange="processarArquivoImportacao(event)">
+
+    <!-- BARRA SUPERIOR / TOPBAR -->
+    <header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-studio-900 px-6 flex items-center justify-between z-20 sticky top-0">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white font-display font-extrabold text-base shadow-sm">
+                A
+            </div>
+            <div>
+                <h1 class="font-display font-extrabold text-sm text-slate-900 dark:text-white leading-none">AtecInfo Builder</h1>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400">Editor com Suporte a Slots (&lt;%comp%&gt;)</span>
+            </div>
+        </div>
+
+        <!-- Seletor de Modos / Abas -->
+        <div class="flex items-center bg-slate-100 dark:bg-studio-950 p-1 rounded-xl border border-slate-200 dark:border-slate-800">
+            <button id="btnTabEdit" onclick="switchTab('edit')" class="px-4 py-1.5 rounded-lg text-xs font-display font-bold transition-all bg-white dark:bg-studio-800 text-brand-600 dark:text-brand-400 shadow-sm">
+                <i class="fa-solid fa-code mr-1.5"></i> Estrutura & Dados
+            </button>
+            <button id="btnTabPreview" onclick="switchTab('preview')" class="px-4 py-1.5 rounded-lg text-xs font-display font-bold transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                <i class="fa-solid fa-eye mr-1.5"></i> Visualização Real
+            </button>
+        </div>
+
+        <!-- Ações do Topo -->
+        <div class="flex items-center gap-2">
+            <button onclick="acionarImportacao()" class="px-3 py-2 rounded-xl text-xs font-display font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-studio-800 hover:bg-slate-200 dark:hover:bg-studio-700 transition-all flex items-center gap-1.5">
+                <i class="fa-solid fa-file-import text-brand-500"></i> Importar Template
+            </button>
+            
+            <button onclick="exportarTemplate()" class="px-3 py-2 rounded-xl text-xs font-display font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-studio-800 hover:bg-slate-200 dark:hover:bg-studio-700 transition-all flex items-center gap-1.5">
+                <i class="fa-solid fa-file-export text-emerald-500"></i> Exportar Template
+            </button>
+
+            <button onclick="gerarEExportarJSON()" class="px-4 py-2 rounded-xl text-xs font-display font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-md transition-all flex items-center gap-2">
+                <i class="fa-solid fa-floppy-disk"></i> Gerar Arquivo Final (.HTML)
+            </button>
+        </div>
+    </header>
+
+    <!-- CORPO PRINCIPAL -->
+    <div class="flex-1 flex overflow-hidden">
+
+        <!-- SIDEBAR ESQUERDA -->
+        <aside class="w-80 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-studio-900 flex flex-col shrink-0">
+            
+            <!-- PRESETS -->
+            <div class="p-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-studio-950/50 space-y-2">
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    <i class="fa-solid fa-wand-magic-sparkles text-brand-500 mr-1"></i> Carregar Template Predefinido
+                </label>
+                <div class="flex gap-2">
+                    <select id="selectTemplatePreset" onchange="carregarPresetSelecionado(this.value)" class="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-studio-900 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        <option value="">-- Selecione um modelo --</option>
+                        <option value="artigo_padrao">Artigo Padrão (Card + Conteúdo)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- BUSCA E NOVO COMPONENTE -->
+            <div class="p-4 border-b border-slate-200 dark:border-slate-800 space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-display font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                        Biblioteca
+                    </span>
+                    <button onclick="abrirModalNovoComponente()" class="px-3 py-1.5 rounded-lg text-xs font-display font-bold text-brand-600 dark:text-brand-400 bg-brand-500/10 hover:bg-brand-500/20 transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-plus text-[10px]"></i> Novo
+                    </button>
+                </div>
+
+                <!-- CAMPO DE BUSCA -->
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-400"></i>
+                    <input type="text" id="inputBuscaComponentes" oninput="filtrarBiblioteca()" placeholder="Buscar componentes..." class="w-full pl-8 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
+                </div>
+            </div>
+
+            <!-- Lista de Componentes -->
+            <div id="listaComponentes" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
+
+            <!-- EDITAR JSON DA BIBLIOTECA -->
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-studio-950">
+                <button onclick="abrirModalJsonBiblioteca()" class="w-full py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-studio-900 hover:border-brand-500 text-slate-700 dark:text-slate-300 font-display font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-brackets-curly text-brand-500"></i> Editar JSON da Biblioteca
+                </button>
+            </div>
+        </aside>
+
+        <!-- ÁREA DIREITA: EDITOR & VISUALIZAÇÃO -->
+        <main class="flex-1 bg-slate-100/50 dark:bg-studio-950 overflow-y-auto p-6">
+            
+            <!-- ABA 1: EDITOR -->
+            <div id="tabContentEdit" class="max-w-4xl mx-auto space-y-6">
+                
+                <!-- METADADOS DA PÁGINA COMPLETO -->
+                <div class="rounded-2xl bg-white dark:bg-studio-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                    <div onclick="toggleMetadataForm()" class="p-4 md:p-6 flex items-center justify-between cursor-pointer hover:bg-slate-50/50 dark:hover:bg-studio-800/40 transition-colors select-none">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-sliders text-brand-600 dark:text-brand-400 text-sm"></i>
+                            <div>
+                                <h2 class="font-display font-bold text-sm text-slate-900 dark:text-white">Informações da Página / Post</h2>
+                                <span class="text-[10px] text-slate-400">Metadados para o JSON da aplicação</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span id="metaStateLabel" class="text-[10px] font-semibold text-slate-400">Contrair</span>
+                            <button type="button" class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-studio-800 text-slate-500 flex items-center justify-center text-xs">
+                                <i id="iconToggleMeta" class="fa-solid fa-chevron-up transition-transform duration-200"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="bodyMetadataForm" class="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">ID / Slug da Página</label>
+                                <input type="text" id="metaId" placeholder="ex: importancia-pasta-termica" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Categoria</label>
+                                <input type="text" id="metaCategoria" placeholder="ex: Dicas de Manutenção" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Título da Página</label>
+                                <input type="text" id="metaTitulo" placeholder="ex: Troca de Pasta Térmica: Quando Fazer..." class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Subtítulo</label>
+                                <input type="text" id="metaSubtitulo" placeholder="ex: A secagem da pasta térmica faz o processador..." class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Tempo de Leitura</label>
+                                <input type="text" id="metaTempoLeitura" placeholder="ex: 3 min" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Data de Publicação</label>
+                                <input type="date" id="metaDataPublicacao" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">URL da Imagem de Capa</label>
+                                <input type="text" id="metaImagemCapa" placeholder="https://..." class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Resumo para a Home</label>
+                                <textarea id="metaResumoHome" rows="2" placeholder="Breve resumo a aparecer na listagem de artigos..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Tags (separadas por vírgula)</label>
+                                <input type="text" id="metaTags" placeholder="ex: pasta térmica, aquecimento, manutenção" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESTRUTURA HIERÁRQUICA DO CANVAS -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h2 class="font-display font-bold text-sm text-slate-700 dark:text-slate-300">
+                            Estrutura Hierárquica do Conteúdo (<span id="totalComponentes">0</span>)
+                        </h2>
+                        <button onclick="limparEditor()" class="text-xs text-rose-500 hover:text-rose-600 font-semibold transition-colors">
+                            <i class="fa-solid fa-trash-can mr-1"></i> Limpar Tudo
+                        </button>
+                    </div>
+
+                    <div id="canvasEditor" class="space-y-3"></div>
+                </div>
+            </div>
+
+            <!-- ABA 2: PREVIEW -->
+            <div id="tabContentPreview" class="hidden max-w-5xl mx-auto">
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-studio-900 shadow-xl overflow-hidden">
+                    <div class="bg-slate-100 dark:bg-studio-800 px-4 py-2 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500">
+                        <span class="text-[10px] bg-brand-500/10 text-brand-500 px-2 py-0.5 rounded-full font-bold">Preview Compilado (Slots Substituídos)</span>
+                        <span class="font-mono text-[11px] text-slate-400" id="previewFilePath">/informativo/conteudos/pagina.html</span>
+                    </div>
+
+                    <div id="previewCanvas" class="p-6 md:p-10 space-y-6 bg-studio-50 dark:bg-studio-950 text-slate-100"></div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MODAIS -->
+
+    <!-- NOVO COMPONENTE -->
+    <div id="modalNovoComponente" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-studio-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">Criar Novo Componente</h3>
+                <button onclick="fecharModalNovoComponente()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1">Nome</label>
+                    <input type="text" id="novoNome" placeholder="Ex: Box Container" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs text-white">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1">Categoria</label>
+                        <input type="text" id="novaCategoria" placeholder="Ex: Containers" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1">Ícone</label>
+                        <input type="text" id="novoIcone" placeholder="Ex: fa-box" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs text-white">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1">Código HTML com Slot (&lt;%comp%&gt;)</label>
+                    <textarea id="novoHtml" rows="5" placeholder='<div class="p-4 bg-slate-800"><%comp%></div>' class="w-full p-3 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 text-xs font-mono text-emerald-400"></textarea>
+                </div>
+            </div>
+            <div class="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                <button onclick="fecharModalNovoComponente()" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400">Cancelar</button>
+                <button onclick="salvarNovoComponente()" class="px-4 py-2 rounded-xl text-xs font-bold text-white bg-brand-600">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JSON DA BIBLIOTECA -->
+    <div id="modalJsonBiblioteca" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-studio-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-2xl p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="font-display font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-brackets-curly text-brand-500"></i> JSON da Biblioteca
+                </h3>
+                <button onclick="fecharModalJsonBiblioteca()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <textarea id="jsonBibliotecaArea" rows="12" class="w-full p-4 rounded-xl bg-slate-900 text-emerald-400 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+            <div class="flex justify-between items-center pt-2 border-t border-slate-100 dark:border-slate-800">
+                <button onclick="baixarJsonBiblioteca()" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-studio-800 hover:bg-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-download"></i> Baixar componentes.json
+                </button>
+                <div class="flex gap-2">
+                    <button onclick="copiarJsonBiblioteca()" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-studio-800 flex items-center gap-1.5"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    <button onclick="aplicarEdicaoJsonBiblioteca()" class="px-4 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 flex items-center gap-1.5"><i class="fa-solid fa-floppy-disk"></i> Aplicar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE SAÍDA FINAL (REGISTRO JSON DA PÁGINA) -->
+    <div id="modalExportarJson" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-studio-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-2xl p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="font-display font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-code text-brand-500"></i> Registro de Metadados da Página
+                </h3>
+                <button onclick="fecharModalExportarJson()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">O arquivo <strong id="nomeArquivoHtmlBaixado" class="text-slate-700 dark:text-slate-200 font-mono">.html</strong> foi gerado. Abaixo está o registro JSON com metadados para catalogação:</p>
+            <textarea id="jsonSaidaCodigo" rows="12" readonly class="w-full p-4 rounded-xl bg-slate-900 text-emerald-400 font-mono text-xs focus:outline-none"></textarea>
+            <div class="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                <button onclick="copiarJsonSaida()" class="px-4 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 flex items-center gap-2"><i class="fa-regular fa-copy"></i> Copiar JSON</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT JS PRINCIPAL -->
+    <script>
+        let bibliotecaComponentes = [];
+        let estruturaArvore = [];
+
+        const presetsTemplates = {
+            artigo_padrao: {
+                meta: {
+                    categoria: "Artigos e Dicas",
+                    tempoLeitura: "4 min",
+                    subtitulo: "Estrutura com container e subcomponentes",
+                    tags: "manutenção, dicas"
+                },
+                componentes: [
+                    {
+                        id: "container_card",
+                        html: `<div class="p-6 rounded-2xl bg-studio-900 border border-slate-800 space-y-4">\n  <%comp%>\n</div>`,
+                        children: [
+                            { id: "titulo_principal", html: `<h1 class="text-3xl font-extrabold text-white leading-tight">Título Dentro do Container</h1>`, children: [] },
+                            { id: "paragrafo_destaque", html: `<p class="text-sm text-slate-300">Este texto foi inserido no slot do card.</p>`, children: [] }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // INICIALIZAÇÃO COM FETCH EM /adm/componentes.json
+        document.addEventListener('DOMContentLoaded', () => {
+            const elData = document.getElementById('metaDataPublicacao');
+            if(elData) elData.valueAsDate = new Date();
+
+            carregarBibliotecaJson();
+        });
+
+        async function carregarBibliotecaJson() {
+            try {
+                const response = await fetch('/adm/componentes.json');
+                if (!response.ok) throw new Error('Não foi possível carregar /adm/componentes.json');
+                bibliotecaComponentes = await response.json();
+            } catch (err) {
+                console.warn("Aviso ao carregar /adm/componentes.json (usando fallback padrão):", err);
+                // Fallback caso o arquivo ainda não exista no servidor local
+                bibliotecaComponentes = [
+                    {
+                        id: "container_card",
+                        nome: "Card Container (Com Slot)",
+                        categoria: "Containers",
+                        icone: "fa-box-archive",
+                        html: `<div class="p-6 rounded-2xl bg-studio-900 border border-slate-800 space-y-4">\n  <%comp%>\n</div>`
+                    },
+                    {
+                        id: "grid_2_colunas",
+                        nome: "Grid 2 Colunas (Com Slot)",
+                        categoria: "Containers",
+                        icone: "fa-columns",
+                        html: `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 border border-slate-800 rounded-xl">\n  <%comp%>\n</div>`
+                    },
+                    {
+                        id: "titulo_principal",
+                        nome: "Título Principal (H1)",
+                        categoria: "Texto",
+                        icone: "fa-heading",
+                        html: `<h1 class="text-3xl font-extrabold text-white leading-tight">Título de Exemplo</h1>`
+                    },
+                    {
+                        id: "paragrafo_destaque",
+                        nome: "Parágrafo",
+                        categoria: "Texto",
+                        icone: "fa-paragraph",
+                        html: `<p class="text-sm text-slate-300 leading-relaxed">Este é um parágrafo interno.</p>`
+                    }
+                ];
+            }
+            renderizarBiblioteca(bibliotecaComponentes);
+        }
+
+        // RENDERIZA E FILTRA SIDEBAR
+        function renderizarBiblioteca(lista) {
+            const container = document.getElementById('listaComponentes');
+            container.innerHTML = '';
+
+            if (!lista || lista.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">Nenhum componente encontrado.</p>`;
+                return;
+            }
+
+            lista.forEach(comp => {
+                const temSlot = comp.html && comp.html.includes('<%comp%>');
+                const card = document.createElement('div');
+                card.className = "p-3 rounded-xl bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 space-y-2 group hover:border-brand-500/50 transition-all";
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid ${comp.icone || 'fa-cube'} text-brand-600 dark:text-brand-400 text-xs"></i>
+                            <span class="font-display font-bold text-xs text-slate-800 dark:text-slate-200">${comp.nome}</span>
+                        </div>
+                        ${temSlot ? '<span class="text-[9px] bg-brand-500/20 text-brand-400 font-bold px-1.5 py-0.5 rounded">CONTAINER</span>' : ''}
+                    </div>
+                    <button onclick="adicionarComponenteRaiz('${comp.id}')" class="w-full py-1.5 rounded-lg bg-white dark:bg-studio-800 hover:bg-brand-600 hover:text-white text-slate-700 dark:text-slate-300 font-display font-bold text-[11px] border border-slate-200 dark:border-slate-700 transition-all">
+                        + Adicionar na Raiz
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filtrarBiblioteca() {
+            const termo = document.getElementById('inputBuscaComponentes').value.toLowerCase().trim();
+            const filtrados = bibliotecaComponentes.filter(c => 
+                c.nome.toLowerCase().includes(termo) || 
+                (c.categoria && c.categoria.toLowerCase().includes(termo)) ||
+                c.id.toLowerCase().includes(termo)
+            );
+            renderizarBiblioteca(filtrados);
+        }
+
+        // GERENCIAMENTO DA ÁRVORE DE COMPONENTES
+        function criarInstancia(compId) {
+            const base = bibliotecaComponentes.find(c => c.id === compId) || { id: compId, nome: compId, html: '' };
+            return {
+                instanceId: 'inst_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+                id: base.id,
+                nome: base.nome,
+                html: base.html,
+                isEditing: false,
+                children: []
+            };
+        }
+
+        function adicionarComponenteRaiz(compId) {
+            estruturaArvore.push(criarInstancia(compId));
+            renderizarCanvas();
+        }
+
+        function adicionarSubComponente(parentInstanceId, compId) {
+            const noPai = buscarNoRecursivo(estruturaArvore, parentInstanceId);
+            if (noPai) {
+                noPai.children.push(criarInstancia(compId));
+                renderizarCanvas();
+            }
+        }
+
+        function removerNo(instanceId) {
+            estruturaArvore = removerNoRecursivo(estruturaArvore, instanceId);
+            renderizarCanvas();
+        }
+
+        function buscarNoRecursivo(lista, id) {
+            for (let item of lista) {
+                if (item.instanceId === id) return item;
+                if (item.children && item.children.length > 0) {
+                    const achado = buscarNoRecursivo(item.children, id);
+                    if (achado) return achado;
+                }
+            }
+            return null;
+        }
+
+        function removerNoRecursivo(lista, id) {
+            return lista.filter(item => item.instanceId !== id).map(item => {
+                if (item.children && item.children.length > 0) {
+                    item.children = removerNoRecursivo(item.children, id);
+                }
+                return item;
+            });
+        }
+
+        // RENDERIZAÇÃO DO CANVAS
+        function renderizarCanvas() {
+            const container = document.getElementById('canvasEditor');
+            const totalElem = document.getElementById('totalComponentes');
+            container.innerHTML = '';
+            
+            totalElem.innerText = contarNosRecursivo(estruturaArvore);
+
+            if (estruturaArvore.length === 0) {
+                container.innerHTML = `<div class="p-12 text-center rounded-2xl bg-white dark:bg-studio-900 border-2 border-dashed border-slate-200 dark:border-slate-800 text-xs text-slate-400">Nenhum componente na página. Selecione um item na biblioteca.</div>`;
+            } else {
+                estruturaArvore.forEach(item => {
+                    container.appendChild(renderizarCardNo(item));
+                });
+            }
+
+            renderizarPreview();
+        }
+
+        function contarNosRecursivo(lista) {
+            let total = 0;
+            lista.forEach(node => {
+                total += 1 + (node.children ? contarNosRecursivo(node.children) : 0);
+            });
+            return total;
+        }
+
+        function renderizarCardNo(node) {
+            const temSlot = node.html && node.html.includes('<%comp%>');
+            const elem = document.createElement('div');
+            elem.className = "p-4 rounded-xl bg-white dark:bg-studio-900 border border-slate-200 dark:border-slate-800 space-y-3 transition-all shadow-sm";
+
+            let seletorFilhosHtml = '';
+            if (temSlot) {
+                const opcoes = bibliotecaComponentes.map(c => `<option value="${c.id}">${c.nome}</option>`).join('');
+                seletorFilhosHtml = `
+                    <div class="mt-2 p-2.5 rounded-lg bg-slate-50 dark:bg-studio-950 border border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                        <span class="text-[10px] font-bold text-brand-500 uppercase"><i class="fa-solid fa-turn-down-right"></i> Inserir em &lt;%comp%&gt;:</span>
+                        <select id="sel_${node.instanceId}" class="px-2 py-1 bg-white dark:bg-studio-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 rounded focus:outline-none">
+                            ${opcoes}
+                        </select>
+                        <button onclick="adicionarSubComponente('${node.instanceId}', document.getElementById('sel_${node.instanceId}').value)" class="px-2.5 py-1 bg-brand-600 text-white rounded text-xs font-bold hover:bg-brand-700">
+                            + Aninhar
+                        </button>
+                    </div>
+                `;
+            }
+
+            elem.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="font-display font-bold text-xs text-slate-900 dark:text-white">${node.nome}</span>
+                        ${temSlot ? '<span class="text-[9px] text-amber-500 bg-amber-500/10 px-1.5 py-0.5 rounded font-mono">&lt;%comp%&gt; ativo</span>' : ''}
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="toggleEditarHtmlNo('${node.instanceId}')" class="px-2 py-1 rounded bg-slate-100 dark:bg-studio-800 text-[10px] font-semibold text-slate-600 dark:text-slate-300">
+                            ${node.isEditing ? 'Fechar HTML' : 'HTML'}
+                        </button>
+                        <button onclick="removerNo('${node.instanceId}')" class="text-rose-500 hover:text-rose-600 text-xs p-1"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+
+                ${node.isEditing ? `
+                <div class="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                    <textarea oninput="salvarHtmlNo('${node.instanceId}', this.value)" rows="4" class="w-full p-2 bg-slate-900 text-emerald-400 font-mono text-xs border border-slate-800 focus:outline-none">${node.html}</textarea>
+                </div>
+                ` : ''}
+
+                ${seletorFilhosHtml}
+
+                <div id="filhos_${node.instanceId}" class="pl-4 border-l-2 border-brand-500/30 space-y-2 mt-2"></div>
+            `;
+
+            const containerFilhos = elem.querySelector(`#filhos_${node.instanceId}`);
+            if (node.children && node.children.length > 0) {
+                node.children.forEach(filho => {
+                    containerFilhos.appendChild(renderizarCardNo(filho));
+                });
+            }
+
+            return elem;
+        }
+        function toggleEditarHtmlNo(instanceId) {
+            const no = buscarNoRecursivo(estruturaArvore, instanceId);
+            if (no) {
+                no.isEditing = !no.isEditing;
+                renderizarCanvas();
+            }
+        }
+
+        function salvarHtmlNo(instanceId, novoHtml) {
+            const no = buscarNoRecursivo(estruturaArvore, instanceId);
+            if (no) {
+                no.html = novoHtml;
+                renderizarPreview();
+            }
+        }
+
+        // COMPILAÇÃO RECURSIVA DO HTML FINAL (REMOÇÃO DO <%comp%>)
+        function compilarNoHtml(node) {
+            const htmlFilhos = (node.children || [])
+                .map(filho => compilarNoHtml(filho))
+                .join('\n');
+
+            if (node.html.includes('<%comp%>')) {
+                return node.html.replace('<%comp%>', htmlFilhos);
+            }
+
+            return node.html + (htmlFilhos ? '\n' + htmlFilhos : '');
+        }
+
+        function gerarHtmlFinalArvore() {
+            return estruturaArvore.map(node => compilarNoHtml(node)).join('\n\n');
+        }
+
+        function compilarNoHtmlComIds(node) {
+    let htmlBase = node.html;
+    const htmlFilhos = (node.children || []).map(filho => compilarNoHtmlComIds(filho)).join('\n');
+
+    // Se o elemento não tiver uma tag com wrapper, envolvemos para permitir edição direta via data-instance-id
+    const wrapperStart = `<div data-instance-id="${node.instanceId}" contenteditable="true" class="outline-none focus:ring-2 focus:ring-brand-500/50 focus:rounded p-0.5 transition-all">`;
+    const wrapperEnd = `</div>`;
+
+    if (htmlBase.includes('<%comp%>')) {
+        let processado = htmlBase.replace('<%comp%>', htmlFilhos);
+        return `${wrapperStart}${processado}${wrapperEnd}`;
+    }
+
+    return `${wrapperStart}${htmlBase}${htmlFilhos ? '\n' + htmlFilhos : ''}${wrapperEnd}`;
+}
+
+// Renderiza a Visualização Real com suporte a edição interativa
+function renderizarPreview() {
+    const previewContainer = document.getElementById('previewCanvas');
+    
+    if (estruturaArvore.length === 0) {
+        previewContainer.innerHTML = `<p class="text-center text-xs text-slate-400 py-12">Nenhum componente para visualizar.</p>`;
+        return;
+    }
+
+    const htmlComWrappers = estruturaArvore.map(node => compilarNoHtmlComIds(node)).join('\n\n');
+    previewContainer.innerHTML = htmlComWrappers;
+
+    // Adiciona o ouvinte para atualizar o estado quando o usuário editar o texto no Preview
+    previewContainer.querySelectorAll('[data-instance-id]').forEach(el => {
+        el.addEventListener('input', (e) => {
+            e.stopPropagation();
+            const instId = el.getAttribute('data-instance-id');
+            const no = buscarNoRecursivo(estruturaArvore, instId);
+            if (no) {
+                // Se for nó pai/container, limpa wrappers internos do clone para extrair HTML limpo
+                const clone = el.cloneNode(true);
+                clone.querySelectorAll('[data-instance-id]').forEach(child => child.remove());
+                
+                if (no.html.includes('<%comp%>')) {
+                    // Mantém a estrutura com slot se for container
+                    const partes = no.html.split('<%comp%>');
+                    no.html = `${clone.innerHTML}<%comp%>`;
+                } else {
+                    no.html = clone.innerHTML;
+                }
+            }
+        });
+    });
+
+    const metaId = document.getElementById('metaId').value.trim() || 'pagina';
+    document.getElementById('previewFilePath').innerText = `/informativo/conteudos/${metaId}.html`;
+}
+
+        // GERAR SAÍDA (.HTML + JSON METADADOS)
+        function gerarEExportarJSON() {
+            const metaId = document.getElementById('metaId').value.trim() || 'nova-pagina';
+            const metaTitulo = document.getElementById('metaTitulo').value.trim() || 'Título da Página';
+            const metaCategoria = document.getElementById('metaCategoria').value.trim() || 'Geral';
+            const metaTempoLeitura = document.getElementById('metaTempoLeitura').value.trim() || '3 min';
+            const metaDataPublicacao = document.getElementById('metaDataPublicacao').value || new Date().toISOString().split('T')[0];
+            const metaImagemCapa = document.getElementById('metaImagemCapa').value.trim() || '';
+            const metaSubtitulo = document.getElementById('metaSubtitulo').value.trim() || '';
+            const metaResumoHome = document.getElementById('metaResumoHome').value.trim() || '';
+            
+            const rawTags = document.getElementById('metaTags').value;
+            const tags = rawTags ? rawTags.split(',').map(t => t.trim()).filter(t => t.length > 0) : [];
+
+            const htmlFinalCompilado = gerarHtmlFinalArvore();
+
+            // Download automático do arquivo .html
+            const htmlBlobStr = "data:text/html;charset=utf-8," + encodeURIComponent(htmlFinalCompilado);
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", htmlBlobStr);
+            downloadAnchor.setAttribute("download", `${metaId}.html`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+
+            // JSON completo do registro
+            const paginaJson = {
+                id: metaId,
+                titulo: metaTitulo,
+                categoria: metaCategoria,
+                tempoLeitura: metaTempoLeitura,
+                dataPublicacao: metaDataPublicacao,
+                imagemCapa: metaImagemCapa,
+                subtitulo: metaSubtitulo,
+                resumoHome: metaResumoHome,
+                arquivoConteudo: `/informativo/conteudos/${metaId}.html`,
+                tags: tags
+            };
+
+            document.getElementById('nomeArquivoHtmlBaixado').innerText = `${metaId}.html`;
+            document.getElementById('jsonSaidaCodigo').value = JSON.stringify(paginaJson, null, 2);
+            document.getElementById('modalExportarJson').classList.remove('hidden');
+            document.getElementById('modalExportarJson').classList.add('flex');
+        }
+
+        function copiarJsonSaida() {
+            const txt = document.getElementById('jsonSaidaCodigo');
+            txt.select();
+            navigator.clipboard.writeText(txt.value);
+            alert('JSON de registro copiado!');
+        }
+
+        // IMPORTAR E EXPORTAR TEMPLATES EM JSON (.json)
+        function exportarTemplate() {
+            if (estruturaArvore.length === 0) {
+                alert('Adicione componentes antes de exportar um template.');
+                return;
+            }
+
+            const nomeTemplate = prompt('Nome do Template:', 'Meu Modelo');
+            if (!nomeTemplate) return;
+
+            const payload = {
+                templateNome: nomeTemplate,
+                criadoEm: new Date().toISOString(),
+                meta: {
+                    categoria: document.getElementById('metaCategoria').value.trim(),
+                    subtitulo: document.getElementById('metaSubtitulo').value.trim(),
+                    tempoLeitura: document.getElementById('metaTempoLeitura').value.trim(),
+                    tags: document.getElementById('metaTags').value.trim()
+                },
+                estruturaArvore: estruturaArvore
+            };
+
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(payload, null, 2));
+            const a = document.createElement('a');
+            a.href = dataStr;
+            a.download = nomeTemplate.toLowerCase().replace(/[^a-z0-9]/g, '_') + '.template.json';
+            a.click();
+        }
+
+        function acionarImportacao() { document.getElementById('inputImportarTemplate').click(); }
+
+        function processarArquivoImportacao(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const json = JSON.parse(e.target.result);
+                    if (json.estruturaArvore) estruturaArvore = json.estruturaArvore;
+                    if (json.meta) {
+                        if (json.meta.categoria) document.getElementById('metaCategoria').value = json.meta.categoria;
+                        if (json.meta.subtitulo) document.getElementById('metaSubtitulo').value = json.meta.subtitulo;
+                        if (json.meta.tempoLeitura) document.getElementById('metaTempoLeitura').value = json.meta.tempoLeitura;
+                        if (json.meta.tags) document.getElementById('metaTags').value = json.meta.tags;
+                    }
+                    renderizarCanvas();
+                    alert('Template importado!');
+                } catch(err) {
+                    alert('Erro ao importar JSON: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function carregarPresetSelecionado(key) {
+            if (!key || !presetsTemplates[key]) return;
+            const preset = presetsTemplates[key];
+            if (preset.meta) {
+                if (preset.meta.categoria) document.getElementById('metaCategoria').value = preset.meta.categoria;
+                if (preset.meta.tempoLeitura) document.getElementById('metaTempoLeitura').value = preset.meta.tempoLeitura;
+                if (preset.meta.subtitulo) document.getElementById('metaSubtitulo').value = preset.meta.subtitulo;
+                if (preset.meta.tags) document.getElementById('metaTags').value = preset.meta.tags;
+            }
+            if (preset.componentes) {
+                estruturaArvore = JSON.parse(JSON.stringify(preset.componentes));
+                renderizarCanvas();
+            }
+        }
+
+        // GERENCIAMENTO DA BIBLIOTECA JSON
+        function abrirModalJsonBiblioteca() {
+            document.getElementById('jsonBibliotecaArea').value = JSON.stringify(bibliotecaComponentes, null, 2);
+            document.getElementById('modalJsonBiblioteca').classList.remove('hidden');
+            document.getElementById('modalJsonBiblioteca').classList.add('flex');
+        }
+
+        function fecharModalJsonBiblioteca() {
+            document.getElementById('modalJsonBiblioteca').classList.add('hidden');
+            document.getElementById('modalJsonBiblioteca').classList.remove('flex');
+        }
+
+        function aplicarEdicaoJsonBiblioteca() {
+            try {
+                const novosComp = JSON.parse(document.getElementById('jsonBibliotecaArea').value);
+                bibliotecaComponentes = novosComp;
+                renderizarBiblioteca(bibliotecaComponentes);
+                fecharModalJsonBiblioteca();
+                alert('Biblioteca de componentes atualizada em memória!');
+            } catch(e) {
+                alert('JSON inválido: ' + e.message);
+            }
+        }
+
+        function copiarJsonBiblioteca() {
+            const area = document.getElementById('jsonBibliotecaArea');
+            area.select();
+            navigator.clipboard.writeText(area.value);
+            alert('JSON copiado!');
+        }
+
+        function baixarJsonBiblioteca() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(bibliotecaComponentes, null, 2));
+            const a = document.createElement('a');
+            a.href = dataStr;
+            a.download = 'componentes.json';
+            a.click();
+        }
+
+        // CONTROLES DE INTERFACE
+        function toggleMetadataForm() {
+            const body = document.getElementById('bodyMetadataForm');
+            const icon = document.getElementById('iconToggleMeta');
+            const label = document.getElementById('metaStateLabel');
+
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden');
+                icon.className = "fa-solid fa-chevron-up transition-transform duration-200";
+                label.innerText = "Contrair";
+            } else {
+                body.classList.add('hidden');
+                icon.className = "fa-solid fa-chevron-down transition-transform duration-200";
+                label.innerText = "Expandir";
+            }
+        }
+
+        function switchTab(tab) {
+            const edit = document.getElementById('tabContentEdit');
+            const prev = document.getElementById('tabContentPreview');
+            const btnE = document.getElementById('btnTabEdit');
+            const btnP = document.getElementById('btnTabPreview');
+
+            if (tab === 'edit') {
+                edit.classList.remove('hidden'); prev.classList.add('hidden');
+                btnE.className = "px-4 py-1.5 rounded-lg text-xs font-display font-bold bg-white dark:bg-studio-800 text-brand-600 dark:text-brand-400 shadow-sm";
+                btnP.className = "px-4 py-1.5 rounded-lg text-xs font-display font-bold text-slate-600 dark:text-slate-400 hover:text-white";
+            } else {
+                edit.classList.add('hidden'); prev.classList.remove('hidden');
+                btnP.className = "px-4 py-1.5 rounded-lg text-xs font-display font-bold bg-white dark:bg-studio-800 text-brand-600 dark:text-brand-400 shadow-sm";
+                btnE.className = "px-4 py-1.5 rounded-lg text-xs font-display font-bold text-slate-600 dark:text-slate-400 hover:text-white";
+            }
+        }
+
+        function abrirModalNovoComponente() {
+            document.getElementById('modalNovoComponente').classList.remove('hidden');
+            document.getElementById('modalNovoComponente').classList.add('flex');
+        }
+        function fecharModalNovoComponente() {
+            document.getElementById('modalNovoComponente').classList.add('hidden');
+            document.getElementById('modalNovoComponente').classList.remove('flex');
+        }
+        function fecharModalExportarJson() {
+            document.getElementById('modalExportarJson').classList.add('hidden');
+            document.getElementById('modalExportarJson').classList.remove('flex');
+        }
+        function salvarNovoComponente() {
+            const nome = document.getElementById('novoNome').value.trim();
+            const cat = document.getElementById('novaCategoria').value.trim() || 'Personalizados';
+            const ico = document.getElementById('novoIcone').value.trim() || 'fa-cube';
+            const html = document.getElementById('novoHtml').value.trim();
+            if (!nome || !html) return;
+
+            bibliotecaComponentes.push({
+                id: 'comp_' + Date.now(),
+                nome: nome,
+                categoria: cat,
+                icone: ico,
+                html: html
+            });
+
+            renderizarBiblioteca(bibliotecaComponentes);
+            fecharModalNovoComponente();
+        }
+
+        function limparEditor() {
+            if (confirm('Tem certeza que deseja limpar o canvas?')) {
+                estruturaArvore = [];
+                renderizarCanvas();
+            }
+        }
+    </script>
+</body>
+</html>

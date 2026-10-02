@@ -1,0 +1,672 @@
+[
+  {
+    "id": 1,
+    "title": "Notepad++",
+    "description": "Editor de texto e código fonte leve, rápido e altamente customizável.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-code",
+    "iconColor": "text-green-600 dark:text-green-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1YOS7RdhekA0bVkT86d5jZ4ntYYaQt_io",
+    "tags": ["texto", "codigo", "editor", "notepad", "desenvolvimento", "Básico para Windows", "Editores"]
+  },
+  {
+    "id": 2,
+    "title": "Google Chrome",
+    "description": "Navegador web rápido, seguro e o mais utilizado no mundo.",
+    "category": "navegadores",
+    "icon": "fa-brands fa-chrome",
+    "iconColor": "text-blue-600 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1ZIyNIS0VWH-8cJ4B_qSBr3kC1I_p20Ei",
+    "tags": ["navegador", "internet", "web", "google", "chrome", "Básico para Windows"]
+  },
+  {
+    "id": 3,
+    "title": "WinRAR",
+    "description": "Compactador e descompactador de arquivos compatível com RAR, ZIP e outros formatos.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-file-zipper",
+    "iconColor": "text-purple-600 dark:text-purple-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=13AVq8GX5_6J3nc3PvpzA-T02wyPe_gxG",
+    "tags": ["zip", "rar", "compactador", "descompactador", "arquivos", "Básico para Windows"]
+  },
+  {
+    "id": 4,
+    "title": "AnyDesk",
+    "description": "Software de acesso e suporte remoto leve e extremamente rápido.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-desktop",
+    "iconColor": "text-red-600 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1BvMZIAPuAlC-13rtc5dL8Set6HOF_roy",
+    "tags": ["remoto", "suporte", "acesso", "rede", "conexao", "Básico para Windows"]
+  },
+  {
+    "id": 5,
+    "title": "Dism++",
+    "description": "Interface gráfica avançada para a ferramenta DISM do Windows, ideal para limpeza e otimização.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-wrench",
+    "iconColor": "text-blue-500 dark:text-blue-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1tbJ0lI12yQErdw1BOl-Qu11Bf0UWRkQ3",
+    "tags": ["dism", "limpeza", "otimizacao", "windows", "sistema", "Básico para Windows"]
+  },
+  {
+    "id": 6,
+    "title": "O&O ShutUp10++",
+    "description": "Ferramenta de privacidade que permite desativar funções indesejadas e telemetria do Windows.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-user-shield",
+    "iconColor": "text-amber-600 dark:text-amber-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1--3PjrmUy7N2FUVunjB3Sw9n4tDXbnKi",
+    "tags": ["privacidade", "telemetria", "otimizacao", "windows", "seguranca", "Básico para Windows"]
+  },
+  {
+    "id": 7,
+    "title": "Auslogics Disk Defrag",
+    "description": "Otimizador e desfragmentador de disco rápido para discos rígidos (HDD).",
+    "category": "manutencao",
+    "icon": "fa-solid fa-hard-drive",
+    "iconColor": "text-cyan-600 dark:text-cyan-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1NVGpREZhVezatb-WvZ2WxMkF6-78W5-3",
+    "tags": ["defrag", "hd", "disco", "otimizacao", "desfragmentador", "limpeza"]
+  },
+  {
+    "id": 8,
+    "title": "Driver Booster",
+    "description": "Utilitário automatizado para busca, atualização e instalação de drivers no Windows.",
+    "category": "drivers",
+    "icon": "fa-solid fa-dharmachakra",
+    "iconColor": "text-orange-600 dark:text-orange-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=18_JMOIQhhAoMAQVRGW7-S4PNalxhEOuX",
+    "tags": ["driver", "atualizacao", "hardware", "dispositivos", "iobit", "Básico para Windows"]
+  },
+  {
+    "id": 9,
+    "title": "K-Lite Codec Pack",
+    "description": "Pacote completo de codecs de áudio e vídeo com o leitor Media Player Classic.",
+    "category": "multimedia",
+    "icon": "fa-solid fa-film",
+    "iconColor": "text-indigo-600 dark:text-indigo-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1MS2yHxfsiAW7UdGZukzNZI1O1C8PyNYO",
+    "tags": ["codec", "video", "audio", "player", "media", "Básico para Windows"]
+  },
+  {
+    "id": 10,
+    "title": "Adobe Acrobat Reader",
+    "description": "Visualizador padrão da indústria para leitura, impressão e anotação em documentos PDF.",
+    "category": "documentos",
+    "icon": "fa-solid fa-file-pdf",
+    "iconColor": "text-red-600 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=140L2F3xTUmYaapiYX3EKDac0d99sEg74",
+    "tags": ["pdf", "adobe", "reader", "documento", "leitor", "Básico para Windows", "Documentos"]
+  },
+  {
+    "id": 11,
+    "title": "Foxit PDF Reader",
+    "description": "Leitor de PDF rápido, leve e com recursos avançados de visualização e anotação.",
+    "category": "documentos",
+    "icon": "fa-solid fa-file-lines",
+    "iconColor": "text-orange-500 dark:text-orange-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1G12WgOCyksIm6oBvQhjVrvAUNN2DYq6c",
+    "tags": ["pdf", "foxit", "leitor", "documento", "texto", "Documentos"]
+  },
+  {
+    "id": 12,
+    "title": "Microsoft Office 2021",
+    "description": "Pacote essencial de produtividade contendo Word, Excel, PowerPoint e Outlook.",
+    "category": "produtividade",
+    "icon": "fa-solid fa-briefcase",
+    "iconColor": "text-red-500 dark:text-red-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1GUk9c-7ceOn9H8W4E9FyFuIJn0dFHhld",
+    "tags": ["office", "word", "excel", "powerpoint", "documentos", "Básico para Windows", "Documentos", "Editores"]
+  },
+  {
+    "id": 13,
+    "title": "Avast Free Antivirus",
+    "description": "Proteção antivírus em tempo real contra ameaças da web, malwares e vírus.",
+    "category": "seguranca",
+    "icon": "fa-solid fa-shield-halved",
+    "iconColor": "text-orange-600 dark:text-orange-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1AHWEQ1Tt2XuqPAmRJgOV7Y5nPHiS-GWe",
+    "tags": ["antivirus", "seguranca", "avast", "protecao", "virus", "Básico para Windows"]
+  },
+  {
+    "id": 14,
+    "title": "AIDA64 Extreme",
+    "description": "Ferramenta avançada de diagnóstico de hardware, informações de sistema e benchmarks.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-chart-line",
+    "iconColor": "text-blue-700 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1QJIl7Vki5vOh45agRZN2r9F5NVA5sedp",
+    "tags": ["diagnostico", "hardware", "benchmark", "temperatura", "sistema"]
+  },
+  {
+    "id": 15,
+    "title": "Java Runtime Environment",
+    "description": "Ambiente de execução necessário para rodar aplicações e sistemas desenvolvidos em Java.",
+    "category": "utilitarios",
+    "icon": "fa-brands fa-java",
+    "iconColor": "text-red-700 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1944jVzXrh_jdjV3q_0tyyU8Fxcwl1mXI",
+    "tags": ["java", "runtime", "jre", "sistema", "execucao", "Básico para Windows"]
+  },
+  {
+    "id": 16,
+    "title": "CutePDF Writer",
+    "description": "Impressora virtual que converte qualquer documento em arquivo PDF facilmente.",
+    "category": "documentos",
+    "icon": "fa-solid fa-print",
+    "iconColor": "text-teal-600 dark:text-teal-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1Fs4O6oiW1ss2THg_oD7rOlFac0VfoUUZ",
+    "tags": ["pdf", "impressora", "conversor", "documento", "cutepdf", "Documentos"]
+  },
+  {
+    "id": 17,
+    "title": "CPU-Z",
+    "description": "Exibe informações detalhadas sobre o processador, placa-mãe, memória e placa de vídeo.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-microchip",
+    "iconColor": "text-purple-600 dark:text-purple-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1CeoQnLj3AnXcJMJsf85DISPWwSmnTB8e",
+    "tags": ["cpu", "hardware", "processador", "memoria", "diagnostico"]
+  },
+  {
+    "id": 18,
+    "title": "Recuva",
+    "description": "Ferramenta de recuperação de arquivos deletados acidentalmente em HDs, cartões e pendrives.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-trash-can-arrow-up",
+    "iconColor": "text-yellow-600 dark:text-yellow-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1kw9NhxI8IXI9ILVepapcFqWB-hcoErH2",
+    "tags": ["recuperacao", "deletados", "arquivos", "recuva", "disco"]
+  },
+  {
+    "id": 19,
+    "title": "MyCam",
+    "description": "Utilitário simples para testar, capturar fotos e gravar vídeos usando a webcam do computador.",
+    "category": "multimedia",
+    "icon": "fa-solid fa-webcam",
+    "iconColor": "text-pink-600 dark:text-pink-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1d4GjGaHlclwOKL_3Y711zEyNko58HY7D",
+    "tags": ["webcam", "camera", "teste", "video", "foto"]
+  },
+  {
+    "id": 20,
+    "title": "KeyTest A TEC INFO",
+    "description": "Programa portátil para testar o funcionamento de todas as teclas do teclado físico.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-keyboard",
+    "iconColor": "text-slate-600 dark:text-slate-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1HXc7KmknsnSqVegXNzF0n9m9h-XjJRK8",
+    "tags": ["teclado", "teste", "keytest", "hardware", "diagnostico", "autoral"]
+  },
+  {
+    "id": 21,
+    "title": "Advanced IP Scanner",
+    "description": "Escaneador de rede gratuito que analisa a LAN e mostra todos os dispositivos conectados.",
+    "category": "rede",
+    "icon": "fa-solid fa-network-wired",
+    "iconColor": "text-blue-600 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1dwAblvD51JUiPLJ6NNVFq6_1-0xN8dZP",
+    "tags": ["ip", "rede", "scanner", "lan", "roteador"]
+  },
+  {
+    "id": 22,
+    "title": "MV RegClean",
+    "description": "Utilitário clássico de varredura e limpeza de entradas inválidas no registro do Windows.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-broom",
+    "iconColor": "text-emerald-600 dark:text-emerald-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1VKAHFFz18FbKe3COZlBfbg0u3akOlCbr",
+    "tags": ["registro", "limpeza", "windows", "otimizacao", "mv"]
+  },
+  {
+    "id": 23,
+    "title": "HijackThis",
+    "description": "Ferramenta de diagnóstico que analisa configurações profundas do sistema para identificar alterações suspeitas.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-magnifying-glass-chart",
+    "iconColor": "text-indigo-600 dark:text-indigo-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1VVQxrjx4DLl2YoHIIhcxVRMPpaChaUP2",
+    "tags": ["registro", "malware", "diagnostico", "relatorio", "sistema", "limpeza"]
+  },
+  {
+    "id": 24,
+    "title": "ComboFix",
+    "description": "Utilitário avançado de remoção de malwares e infecções profundas para sistemas Windows antigos.",
+    "category": "seguranca",
+    "icon": "fa-solid fa-biohazard",
+    "iconColor": "text-red-700 dark:text-red-500",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1qFWQa6MtT0thAV_ZnZVwHwds8obdbSii",
+    "tags": ["combofix", "malware", "virus", "remocao", "seguranca", "limpeza"]
+  },
+  {
+    "id": 25,
+    "title": "AdwCleaner",
+    "description": "Especialista na remoção de adwares, PUPs (programas indesejados), hijacking de navegador e toolbars.",
+    "category": "seguranca",
+    "icon": "fa-solid fa-shield-cat",
+    "iconColor": "text-cyan-600 dark:text-cyan-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1iAofmjgBdiXlVfMZuD877pw1t-NYQnm2",
+    "tags": ["adware", "pup", "malwarebytes", "limpeza", "navegador"]
+  },
+  {
+    "id": 26,
+    "title": "Advanced SystemCare",
+    "description": "Suíte completa de otimização, limpeza de disco, reparo de registro e proteção do sistema.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-gauge-high",
+    "iconColor": "text-blue-600 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1WS_3K-pwdEZ0a_UQFF5h2ySl91Zrhbgb",
+    "tags": ["otimizacao", "iobit", "limpeza", "manutencao", "windows"]
+  },
+  {
+    "id": 27,
+    "title": "Internet Explorer 9 - win 7",
+    "description": "Versão legada do navegador da Microsoft, necessária para compatibilidade com sistemas legados do Windows 7.",
+    "category": "navegadores",
+    "icon": "fa-brands fa-internet-explorer",
+    "iconColor": "text-sky-600 dark:text-sky-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=17Rb99GPCvV4maT8m_2ZwTKzjNEFdQ-Ku",
+    "tags": ["ie9", "internet", "explorer", "microsoft", "legado"]
+  },
+  {
+    "id": 28,
+    "title": "Windows Movie Maker 2",
+    "description": "Editor clássico e simples de vídeos da Microsoft para edições rápidas.",
+    "category": "multimedia",
+    "icon": "fa-solid fa-clapperboard",
+    "iconColor": "text-purple-600 dark:text-purple-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1G_iDn8QQ7TaD5Xi2OKGJ9jcFpNVGY4Xu",
+    "tags": ["video", "editor", "movie", "maker", "microsoft", "Editores"]
+  },
+  {
+    "id": 29,
+    "title": "Supermium",
+    "description": "Navegador baseado no Chromium moderno projetado para rodar em sistemas antigos como Windows XP, Vista e 7.",
+    "category": "navegadores",
+    "icon": "fa-solid fa-compass",
+    "iconColor": "text-yellow-600 dark:text-yellow-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1FtVxBZhJkrUtokbl4kZzgoYUdemxVZU2",
+    "tags": ["navegador", "xp", "win7", "chromium", "supermium"]
+  },
+  {
+    "id": 30,
+    "title": "DAEMON Tools Lite",
+    "description": "Emulador de unidades virtuais de CD, DVD e Blu-ray para montagem de imagens ISO.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-compact-disc",
+    "iconColor": "text-blue-500 dark:text-blue-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1NoGX-2oGAoBS8xnVYI4faK5QVmp4k5tQ",
+    "tags": ["iso", "daemon", "cd", "dvd", "emulador"]
+  },
+  {
+    "id": 31,
+    "title": "Rufus",
+    "description": "Crie pendrives bootáveis de forma rápida para instalação de sistemas operacionais como Windows e Linux.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-usb",
+    "iconColor": "text-stone-600 dark:text-stone-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1O1mCFvMmOiRxV1ZNvHY3LXVkCP_xf_75",
+    "tags": ["boot", "usb", "pendrive", "iso", "formatacao", "Básico para Windows"]
+  },
+  {
+    "id": 32,
+    "title": "HWMonitor",
+    "description": "Monitoramento em tempo real de hardware, mostrando sensores de voltagem, temperaturas e ventoinhas.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-temperature-high",
+    "iconColor": "text-red-500 dark:text-red-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1VyyyBuooljX1UrN-SHoVG-Z_upyETfxD",
+    "tags": ["temperatura", "hardware", "cooler", "voltagem", "diagnostico"]
+  },
+  {
+    "id": 33,
+    "title": "Macro Recorder",
+    "description": "Automatizador de tarefas que grava movimentos de mouse e cliques de teclado para repetição automática.",
+    "category": "produtividade",
+    "icon": "fa-solid fa-circle-dot",
+    "iconColor": "text-red-600 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1BE6RJaP8wf0Exrl5tk1oPbD2BQFwe48w",
+    "tags": ["macro", "automacao", "teclado", "mouse", "gravar", "Scripts"]
+  },
+  {
+    "id": 34,
+    "title": "ProduKey / KeyFinder",
+    "description": "Utilitário para recuperar chaves de produto (Product Keys) instaladas do Windows e do Office.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-key",
+    "iconColor": "text-amber-500 dark:text-amber-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1VEHO53paTos0YawdueDSD5oDDaspNN1d",
+    "tags": ["key", "licenca", "windows", "office", "serial"]
+  },
+  {
+    "id": 35,
+    "title": "FurMark",
+    "description": "Ferramenta de teste de estresse e benchmark intensivo para placas de vídeo (GPU).",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-fire",
+    "iconColor": "text-orange-600 dark:text-orange-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=18YI8sl29DlyZ0oo_pEXjn3D8Q8iCp2Vw",
+    "tags": ["gpu", "estresse", "benchmark", "temperatura", "placa-de-video"]
+  },
+  {
+    "id": 36,
+    "title": "Prime95",
+    "description": "Teste de estabilidade extrema e estresse para processador e memória RAM.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-bolt",
+    "iconColor": "text-yellow-500 dark:text-yellow-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1grcvQGovD0wBQgeMW85paOd1C2qE9V92",
+    "tags": ["cpu", "estresse", "estabilidade", "processador", "prime95"]
+  },
+   {
+    "id": 38,
+    "title": "GPU-Z",
+    "description": "Exibe todas as especificações técnicas, clocks e sensores detalhados da sua placa de vídeo.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-tv",
+    "iconColor": "text-purple-600 dark:text-purple-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=17_8JmZDFgr2Rs-Utpn6bmV4QKNqOKs8E",
+    "tags": ["gpu", "placa-de-video", "hardware", "especificacoes", "sensores"]
+  },
+  {
+    "id": 39,
+    "title": "CrystalDiskInfo",
+    "description": "Leitor dos dados S.M.A.R.T. para monitoramento da saúde e temperatura de HDs e SSDs.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-heart-pulse",
+    "iconColor": "text-rose-600 dark:text-rose-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1L8uZHR6SvfIdY12o3JFje8F02_EJd3o_",
+    "tags": ["hd", "ssd", "saude", "smart", "diagnostico"]
+  },
+  {
+    "id": 40,
+    "title": "CrystalDiskMark",
+    "description": "Mede as velocidades de leitura e escrita sequencial e aleatória de unidades de armazenamento.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-tachometer-alt",
+    "iconColor": "text-emerald-500 dark:text-emerald-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1b0-yLS3uVGLMLN22bU8zWXuEJjAInQtM",
+    "tags": ["benchmark", "ssd", "hd", "velocidade", "teste"]
+  },
+  {
+    "id": 41,
+    "title": "MemTest86",
+    "description": "Ferramenta de diagnóstico independente executada via boot para detectar falhas físicas em pentes de memória RAM.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-memory",
+    "iconColor": "text-indigo-500 dark:text-indigo-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1aqosg1LlkiYliYeR81tD8hoCPSGGomVb",
+    "tags": ["ram", "memoria", "teste", "boot", "diagnostico"]
+  },
+  {
+    "id": 42,
+    "title": "Ventoy",
+    "description": "Ferramenta multiboot para USB que permite iniciar múltiplos arquivos ISO sem precisar formatar o pendrive a cada vez.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-box-archive",
+    "iconColor": "text-blue-600 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1j77Y-ilvY2su5aC-JSi0KxVbuoidhkKO",
+    "tags": ["multiboot", "usb", "iso", "pendrive", "ventoy", "Básico para Windows"]
+  },
+  {
+    "id": 43,
+    "title": "TreeSize Free",
+    "description": "Mapeia o uso do disco e exibe rapidamente quais pastas e arquivos ocupam mais espaço.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-folder-tree",
+    "iconColor": "text-yellow-600 dark:text-yellow-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1woVSn7GIkgeu98IqEET7nv2nv5JrvaCB",
+    "tags": ["disco", "espaco", "pastas", "tamanho", "limpeza"]
+  },
+  {
+    "id": 44,
+    "title": "WizTree",
+    "description": "Analisador de espaço em disco extremamente rápido que varre o MFT da unidade em segundos.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-chart-pie",
+    "iconColor": "text-amber-500 dark:text-amber-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1pns0DVPLs43POpcmDdygFTsmDXVj9VTT",
+    "tags": ["espaco", "wiztree", "mft", "disco", "analise", "limpeza"]
+  },
+  {
+    "id": 45,
+    "title": "AOMEI Partition Assistant",
+    "description": "Gerenciador completo de partições de disco para criar, redimensionar, clonar e converter MBR/GPT.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-sliders",
+    "iconColor": "text-blue-600 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1RCC3bDbpMDiJgsaQDK7rU5en9E5phtcq",
+    "tags": ["particao", "mbr", "gpt", "clonagem", "hd"]
+  },
+  {
+    "id": 46,
+    "title": "Malwarebytes Anti-Malware",
+    "description": "Scanner poderoso para remoção de malwares, ransomware, spyware e infecções ativas.",
+    "category": "seguranca",
+    "icon": "fa-solid fa-shield-virus",
+    "iconColor": "text-blue-700 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1TWxlrrODLF_DuH7AvLFXQE1XW23wDZCO",
+    "tags": ["malware", "antivirus", "seguranca", "malwarebytes", "remocao", "limpeza"]
+  },
+  {
+    "id": 47,
+    "title": "Kaspersky Virus Removal Tool",
+    "description": "Utilitário portátil da Kaspersky para verificação e desinfecção gratuita de sistemas infectados.",
+    "category": "seguranca",
+    "icon": "fa-solid fa-user-shield",
+    "iconColor": "text-emerald-700 dark:text-emerald-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1Ujy27H2ZK66fcfzPJlB17jnnkaCkGh7O",
+    "tags": ["kaspersky", "kvrt", "scanner", "virus", "portatil", "limpeza"]
+  },
+  {
+    "id": 48,
+    "title": "RogueKiller",
+    "description": "Ferramenta de segurança avançada capaz de encontrar e eliminar processos maliciosos e rootkits profundos.",
+    "category": "seguranca",
+    "icon": "fa-solid fa-skull-crossbones",
+    "iconColor": "text-red-700 dark:text-red-500",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1RT_qequmW9YQ8jvX313DMd7VRXPYEWGr",
+    "tags": ["rootkit", "roguekiller", "malware", "processos", "seguranca", "limpeza"]
+  },
+  {
+    "id": 49,
+    "title": "Driver Store Explorer",
+    "description": "Permite inspecionar, fazer backup e limpar drivers desatualizados ou duplicados no repositório do Windows.",
+    "category": "drivers",
+    "icon": "fa-solid fa-folder-open",
+    "iconColor": "text-slate-600 dark:text-slate-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1t_n-mOg90mlzt2DqDFTevnznL9cgC_ch",
+    "tags": ["rapr", "drivers", "driverstore", "limpeza", "windows"]
+  },
+  {
+    "id": 50,
+    "title": "Snappy Driver Installer Lite",
+    "description": "Ferramenta open-source portátil para instalação e atualização offline de drivers sem adwares.",
+    "category": "drivers",
+    "icon": "fa-solid fa-download",
+    "iconColor": "text-blue-500 dark:text-blue-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1sinGThthCQLXE_4ArUfLxxdnpOaFiEvx",
+    "tags": ["sdio", "drivers", "snappy", "offline", "atualizacao"]
+  },
+  {
+    "id": 51,
+    "title": "Ninite - Link Site",
+    "description": "Cria um único instalador silencioso para baixar e atualizar automaticamente seus programas essenciais favoritos.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-wand-magic-sparkles",
+    "iconColor": "text-purple-600 dark:text-purple-400",
+    "downloadUrl": "https://ninite.com/",
+    "tags": ["ninite", "instalador", "automatizado", "softwares", "pos-formatacao", "Básico para Windows"]
+  },
+  {
+    "id": 52,
+    "title": "Revo Uninstaller",
+    "description": "Desinstalador avançado que remove programas e varre todos os restos de arquivos e entradas do registro.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-trash-can",
+    "iconColor": "text-red-600 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=121grwzRAsYd-Ec_VPnjVWGZqBx2TwGBI",
+    "tags": ["desinstalador", "revo", "registro", "limpeza", "programas", "Básico para Windows"]
+  },
+  {
+    "id": 53,
+    "title": "Geek Uninstaller",
+    "description": "Desinstalador ultra-rápido, leve e portátil para remoção limpa e forçada de aplicativos.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-bolt-lightning",
+    "iconColor": "text-orange-500 dark:text-orange-300",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1xyXdHiCEYUvzYTZdO4NfJEt0nd12BE-Y",
+    "tags": ["geek", "desinstalador", "portatil", "limpeza", "programas"]
+  },
+  {
+    "id": 54,
+    "title": "OCCT",
+    "description": "Ferramenta completa para testes de estresse de CPU, GPU e fonte de alimentação (PSU).",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-chart-area",
+    "iconColor": "text-red-600 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1N5wv9hBo8gum5eBL-sjmsQPhWPjzTseX",
+    "tags": ["occt", "fonte", "psu", "estresse", "hardware"]
+  },
+  {
+    "id": 56,
+    "title": "Auslogics SSD Optimizer",
+    "description": "Ferramenta especializada na otimização e manutenção do desempenho de unidades SSD sem causar desgaste desnecessário.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-microchip",
+    "iconColor": "text-cyan-600 dark:text-cyan-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1nU9BYTgFbPE0yhQWNJ8ntfby_BUB8srv",
+    "tags": ["ssd", "otimizacao", "auslogics", "desempenho", "manutencao", "limpeza"]
+  },
+  {
+    "id": 57,
+    "title": "Remove WGA (Windows XP)",
+    "description": "Utilitário para remover temporariamente notificações e avisos de validação de cópia pirata no Windows XP.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-triangle-exclamation",
+    "iconColor": "text-amber-600 dark:text-amber-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1FGJT42EbJB_JTv9ciRTC5fnMKYy9kMZD",
+    "tags": ["wga", "windows-xp", "notificacao", "sistema", "legado"]
+  },
+  {
+    "id": 58,
+    "title": "Remove WAT / WGA (Windows 7)",
+    "description": "Remove avisos e mensagens de validação do Windows 7 para uso temporário até a regularização do sistema.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-triangle-exclamation",
+    "iconColor": "text-amber-600 dark:text-amber-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1kQh-hiob3zyE0lZYWRUGoNq8lBN2ebOA",
+    "tags": ["wga", "wat", "windows-7", "notificacao", "manutencao"]
+  },
+  {
+    "id": 59,
+    "title": "Windows 7 Loader",
+    "description": "Ferramenta para ativação e regularização temporária da licença no Windows 7.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-key",
+    "iconColor": "text-blue-600 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1AfzprIO3tDGWFSQeoyh7Ufj8WMdUekXr",
+    "tags": ["windows-7", "ativador", "licenca", "loader", "manutencao"]
+  },
+  {
+    "id": 60,
+    "title": "Script Backup WinRAR (.bat)",
+    "description": "Script em lote configurado para automatizar rotinas de backup compactado utilizando a sintaxe do WinRAR.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-file-code",
+    "iconColor": "text-purple-600 dark:text-purple-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1RjRowphTDyNnRVIBweAzlHjpqN3CLQhG",
+    "tags": ["script", "bat", "backup", "winrar", "automacao", "Scripts", "Autoral"]
+  },
+  {
+    "id": 61,
+    "title": "Script Atualiza Relógio (.bat)",
+    "description": "Script automatizado para forçar a sincronização de data e hora do Windows via servidores NTP na internet.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-clock",
+    "iconColor": "text-emerald-600 dark:text-emerald-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1QMWSTdEUsKiHXpmQf5MihdnXmcuEef__",
+    "tags": ["script", "bat", "relogio", "hora", "ntp", "sincronizacao", "Scripts", "Autoral"]
+  },
+  {
+    "id": 62,
+    "title": "Script Limpa Fila de Impressão (.bat)",
+    "description": "Script para interromper o Spooler de Impressão, apagar documentos travados na fila e reiniciar o serviço.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-print",
+    "iconColor": "text-red-600 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1Aajn2iRjaREIkQPHK8jOj6zSDAqlJkza",
+    "tags": ["script", "bat", "impressora", "spooler", "limpeza", "impressao", "Scripts", "Autoral"]
+  },
+  {
+    "id": 63,
+    "title": "Ativador de Licenças",
+    "description": "Utilitário interno para validação e ativação de licenças de softwares win/Office",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-user-lock",
+    "iconColor": "text-indigo-600 dark:text-indigo-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1cLCxHubwoTn61AtFyn6KPI_O8phxGbG6",
+    "tags": ["licenca", "ativador", "proprio", "sistemas", "validacao", "Autoral", "Windows", "Office"]
+  },
+  {
+    "id": 64,
+    "title": "Script Correction AutoCAD 2021 (.bat)",
+    "description": "Corrige falsos alertas de licença gerados ao alterar o idioma do AutoCAD 2021 para português.",
+    "category": "utilitarios",
+    "icon": "fa-solid fa-wrench",
+    "iconColor": "text-orange-600 dark:text-orange-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=11aZwjVu5D6wm1AuzBoqvCjaGSrevZMxq",
+    "tags": ["script", "autocad", "correcao", "cad2021", "idioma", "Scripts", "Autoral"]
+  },
+  {
+    "id": 65,
+    "title": "Heavy Load (hLoad)",
+    "description": "Utilitário para teste de estresse de componentes, forçando uso contínuo de CPU, memória RAM e disco rígido.",
+    "category": "diagnostico",
+    "icon": "fa-solid fa-gauge-high",
+    "iconColor": "text-red-600 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1jVcTc_1niaoveUmLK9jja_ZYM15N3Epd",
+    "tags": ["estresse", "hardware", "cpu", "ram", "hd", "diagnostico"]
+  },
+  {
+    "id": 66,
+    "title": "VLC Media Player",
+    "description": "Reprodutor multimídia universal e de código aberto que executa praticamente todos os formatos de áudio e vídeo sem precisar de codecs adicionais.",
+    "category": "multimedia",
+    "icon": "fa-solid fa-play",
+    "iconColor": "text-orange-500 dark:text-orange-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1v8zogWxpEfi7n5sREhOaLs4w-pjFmAeC",
+    "tags": ["Básico para Windows", "video", "audio", "player", "multimedia"]
+  },
+  {
+    "id": 67,
+    "title": "Brave Browser",
+    "description": "Navegador focado em privacidade e velocidade, com bloqueador nativo de anúncios, rastreadores e pop-ups integrado.",
+    "category": "navegadores",
+    "icon": "fa-solid fa-lion",
+    "iconColor": "text-orange-600 dark:text-orange-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1ztC5GD_laDnhUXjgCZQk964-KMBRQoG5",
+    "tags": ["Básico para Windows", "navegador", "browser", "internet", "privacidade"]
+  },
+  {
+    "id": 68,
+    "title": "Opera Browser",
+    "description": "Navegador rápido e personalizável com VPN gratuita integrada, bloqueador de anúncios e barra lateral para redes sociais.",
+    "category": "navegadores",
+    "icon": "fa-brands fa-opera",
+    "iconColor": "text-red-600 dark:text-red-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1HoBOIcoCS0_CETfNlUgh-j-fypEAnSpF",
+    "tags": ["Básico para Windows", "navegador", "browser", "internet", "vpn"]
+  },
+  {
+    "id": 69,
+    "title": "Chris Titus Tech Windows Utility (WinUtil)",
+    "description": "Ferramenta avançada para otimização do Windows, desinstalação de bloatwares, instalação rápida de programas e ajustes finos de sistema.",
+    "category": "manutencao",
+    "icon": "fa-solid fa-terminal",
+    "iconColor": "text-blue-500 dark:text-blue-400",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=1UnKBI-G_-wghuOhR0vLe8P8ZKVgu9DMb",
+    "tags": ["Básico para Windows", "Scripts", "otimizacao", "limpeza", "windows", "tweaks"]
+  }
+]

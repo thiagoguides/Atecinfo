@@ -1,0 +1,30 @@
+<!-- HERO SHOWCASE CONTAINER -->
+<section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-50 dark:from-studio-950 dark:via-studio-900 dark:to-studio-950 min-h-[500px] transition-colors duration-200 pt-20">
+    
+    <!-- Wrapper onde o HTML dinâmico será injetado -->
+    <div id="destaqueHtmlWrapper" class="transition-opacity duration-500 opacity-100 w-full">
+        <!-- O HTML completo do destaque será injetado aqui -->
+    </div>
+
+    <!-- Controles Flutuantes do Destaque -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-10 pb-6">
+        <div class="flex items-center justify-between gap-4">
+            
+            <!-- Indicadores de Progresso -->
+            <div id="destaqueIndicadores" class="flex-1 flex gap-2 max-w-xs">
+                <!-- Gerado via JS -->
+            </div>
+
+            <!-- Botões Anterior / Próximo -->
+            <div class="flex items-center gap-2">
+                <button id="btnDestaquePrev" aria-label="Anterior" class="w-9 h-9 rounded-full bg-white/90 hover:bg-white dark:bg-studio-900/90 dark:hover:bg-studio-800 text-slate-900 dark:text-white border border-slate-200 dark:border-studio-700/80 flex items-center justify-center shadow-md transition-all active:scale-95">
+                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                </button>
+                <button id="btnDestaqueNext" aria-label="Próximo" class="w-9 h-9 rounded-full bg-white/90 hover:bg-white dark:bg-studio-900/90 dark:hover:bg-studio-800 text-slate-900 dark:text-white border border-slate-200 dark:border-studio-700/80 flex items-center justify-center shadow-md transition-all active:scale-95">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>

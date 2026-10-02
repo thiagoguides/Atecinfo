@@ -1,0 +1,33 @@
+Cores Principais / Destaque (Tom Azul - Sky)
+Sky 800 (#075985): Botão ativo / destaque primário (bg-sky-800).
+
+Sky 900 (#0c4a6e): Hover do botão primário (hover:bg-sky-900).
+
+Sky 600 (#0284c7): Subtítulos, ícones e links em destaque (text-sky-600).
+
+Sky 700 (#0369a1): Hover de textos de botões (hover:text-sky-700).
+
+Sky 300 (#7dd3fc): Borda nos cards ao passar o mouse (hover:border-sky-300).
+
+Sky 200 (#bae6fd): Borda nos botões no estado hover (hover:border-sky-200).
+
+Sky 100 (#e0f2fe): Borda suave dos ícones (border-sky-100).
+
+Sky 50 (#f0f9ff): Fundo dos ícones e hover dos botões secundários (bg-sky-50, hover:bg-sky-50).
+
+⚪ Cores Neutras (Fundo, Texto e Bordas - Slate / White)
+White (#ffffff): Fundo dos cards e botões inativos (bg-white, text-white).
+
+Slate 50 (#f8fafc): Fundo da seção inteira (bg-slate-50).
+
+Slate 100 (#f1f5f9): Linhas divisórias internas dos cards (border-slate-100).
+
+Slate 200 (#e2e8f0): Bordas dos cards e botões (border-slate-200).
+
+Slate 500 (#64748b): Texto secundário (ex: indicador de tempo) (text-slate-500).
+
+Slate 600 (#475569): Texto descritivo / parágrafos (text-slate-600).
+
+Slate 700 (#334155): Texto dos botões de abas inativas (text-slate-700).
+
+Slate 900 (#0f172a): Títulos principais e botões de ação (text-slate-900).

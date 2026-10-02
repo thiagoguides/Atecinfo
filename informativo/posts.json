@@ -1,0 +1,54 @@
+[
+  {
+    "id": "importancia-do-backup",
+  "titulo": "O Maior Erro Que Você Pode Cometer Hoje no Seu Computador (E Como Evitá-lo)",
+  "categoria": "Segurança e Dados",
+  "tempoLeitura": "4 min",
+  "dataPublicacao": "2026-09-30",
+  "imagemCapa": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+  "subtitulo": "Descubra por que esperar o HD pifar para pensar em backup pode custar anos de arquivos da sua empresa ou vida pessoal.",
+  "resumoHome": "Entenda os perigos reais da perda de dados, veja casos práticos e aprenda a criar rotinas automáticas de backup para proteger seus arquivos.",
+  "arquivoConteudo": "/informativo/conteudos/importancia-do-backup.html",
+  "tags": ["backup", "segurança", "nuvem", "hd externo", "ransomware", "proteção de dados"]
+},
+{
+  "id": "poeira-e-travamento-perigo-silencioso-computador",
+  "titulo": "Poeira e Travamento: O Inimigo Silencioso Que Pode Matar o Seu Computador",
+  "categoria": "Manutenção Preventiva",
+  "tempoLeitura": "4 min",
+  "dataPublicacao": "2026-09-30",
+  "imagemCapa": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
+  "subtitulo": "Descubra como o acúmulo de sujeira gera superaquecimento, reduz o desempenho do processador e pode destruir componentes valiosos do seu PC.",
+  "resumoHome": "Entenda como a poeira causa superaquecimento, aciona o Thermal Throttling e pode queimar peças do seu PC. Descubra a frequência ideal de limpeza e evite prejuízos.",
+  "arquivoConteudo": "/informativo/conteudos/poeira-e-travamento-perigo-silencioso-computador.html",
+  "tags": [
+    "manutenção preventiva",
+    "superaquecimento",
+    "limpeza técnica",
+    "thermal throttling",
+    "hardware",
+    "atecinfo"
+  ]
+},
+{
+  "id": "antivirus-atualizado-mas-pegou-virus-como-aconteceu",
+  "titulo": "Seu Antivírus Está Atualizado, Mas Você Pegou Vírus? Descubra Como Isso Aconteceu!",
+  "categoria": "Segurança Digital",
+  "tempoLeitura": "5 min",
+  "dataPublicacao": "2026-09-30",
+  "imagemCapa": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+  "subtitulo": "Entenda por que nenhum antivírus garante 100% de segurança, como os vírus transitam por pendrives e o que fazer imediatamente caso seu computador seja infectado.",
+  "resumoHome": "Antivírus não é infalível. Descubra como os hackers usam pendrives, engenharia social e IA para burlar defesas e veja o passo a passo para proteger suas contas e arquivos.",
+  "arquivoConteudo": "/informativo/conteudos/antivirus-atualizado-mas-pegou-virus.html",
+  "tags": [
+    "segurança digital",
+    "remoção de vírus",
+    "engenharia social",
+    "antivírus",
+    "formatação segura",
+    "atecinfo"
+  ]
+}
+  
+  
+]
