@@ -77,11 +77,11 @@ function initTheme() {
 document.addEventListener("DOMContentLoaded", async () => {
 
     // 1. Carrega os componentes HTML sequencialmente
-    await loadComponent("informativo", "/components/informativo.html");
+    await loadComponent("informativo", "/components/Informativo.html");
     await loadComponent("catalogo", "/components/Catalogo.html");
     await loadComponent("demonstracao", "/components/demonstracao.html");
     await loadComponent("comodidade", "/components/comodidade.html");
-    await loadComponent("contato", "/components/contato.html");
+    await loadComponent("contato", "/components/Contato.html");
     await loadComponent("rodape", "/components/rodape.html");
     await loadComponent("menuTopo", "/components/menuTopo.html");
     await loadComponent("topo", "/components/topo.html");
