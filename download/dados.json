@@ -36,7 +36,7 @@
     "category": "utilitarios",
     "icon": "fa-solid fa-desktop",
     "iconColor": "text-red-600 dark:text-red-400",
-    "downloadUrl": "https://drive.google.com/uc?export=download&id=1BvMZIAPuAlC-13rtc5dL8Set6HOF_roy",
+    "downloadUrl": "/download/programas/AnyDesk.exe",
     "tags": ["remoto", "suporte", "acesso", "rede", "conexao", "Básico para Windows"]
   },
   {
@@ -666,7 +666,7 @@
     "category": "manutencao",
     "icon": "fa-solid fa-terminal",
     "iconColor": "text-blue-500 dark:text-blue-400",
-    "downloadUrl": "https://drive.google.com/uc?export=download&id=1UnKBI-G_-wghuOhR0vLe8P8ZKVgu9DMb",
+    "downloadUrl": "download/programas/WinUtil - Chris Titus Tech  CTT.lnk",
     "tags": ["Básico para Windows", "Scripts", "otimizacao", "limpeza", "windows", "tweaks"]
   }
 ]
