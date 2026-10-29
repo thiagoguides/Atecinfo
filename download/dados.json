@@ -36,7 +36,7 @@
     "category": "utilitarios",
     "icon": "fa-solid fa-desktop",
     "iconColor": "text-red-600 dark:text-red-400",
-    "downloadUrl": "/download/programas/AnyDesk.exe",
+    "downloadUrl": "https://anydesk.com/pt/downloads/thank-you?dv=win_exe",
     "tags": ["remoto", "suporte", "acesso", "rede", "conexao", "Básico para Windows"]
   },
   {
